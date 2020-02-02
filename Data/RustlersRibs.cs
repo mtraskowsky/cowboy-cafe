@@ -30,5 +30,15 @@ namespace CowboyCafe.Data
                 return 894;
             }
         }
+
+        public List<string> SpecialInstructions
+        {
+            get
+            {
+                var instructions = new List<string>();
+
+                return instructions;
+            }
+        }
     }
 }
