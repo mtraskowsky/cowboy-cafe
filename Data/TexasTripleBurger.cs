@@ -5,34 +5,34 @@ using System.Text;
 namespace CowboyCafe.Data
 {
     /// <summary>
-    /// a class representing the dakota double burger entree
+    /// A class representing the texas triple burger
     /// </summary>
-    public class DakotaDoubleBurger
+    public class TexasTripleBurger
     {
         /// <summary>
-        /// the price of the dakota double burger
+        /// the price of the texas triple burger
         /// </summary>
         public double Price
         {
             get
             {
-                return 5.20;
+                return 6.45;
             }
         }
-
+        
         /// <summary>
-        /// the calories in the dakota double burger
+        /// the calories in the texas triple burger
         /// </summary>
         public uint Calories
         {
             get
             {
-                return 464;
+                return 698;
             }
         }
 
         /// <summary>
-        /// if the double burger has a bun
+        /// if the texas triple burger has a bun
         /// </summary>
         private bool bun = true;
         public bool Bun
@@ -42,7 +42,7 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
-        /// if the double burger has ketchup
+        /// if the texas triple burger has ketchup
         /// </summary>
         private bool ketchup = true;
         public bool Ketchup
@@ -52,7 +52,7 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
-        /// if the double burger has mustard
+        /// if the texas triple burger has mustard
         /// </summary>
         private bool mustard = true;
         public bool Mustard
@@ -62,7 +62,7 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
-        /// if the double burger has a pickle
+        /// if the texas triple burger has a pickle
         /// </summary>
         private bool pickle = true;
         public bool Pickle
@@ -72,7 +72,7 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
-        /// if the double burger has cheese
+        /// if the texas triple burger has cheese
         /// </summary>
         private bool cheese = true;
         public bool Cheese
@@ -82,7 +82,7 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
-        /// if the double burger has tomato
+        /// if the texas triple burger has tomato
         /// </summary>
         private bool tomato = true;
         public bool Tomato
@@ -92,7 +92,7 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
-        /// if the double burger has lettuce
+        /// if the texas triple burger has lettuce
         /// </summary>
         private bool lettuce = true;
         public bool Lettuce
@@ -102,7 +102,7 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
-        /// if the double burger has mayo
+        /// if the texas triple burger has mayo
         /// </summary>
         private bool mayo = true;
         public bool Mayo
@@ -111,8 +111,28 @@ namespace CowboyCafe.Data
             set { mayo = value; }
         }
 
+        private bool bacon = true;
         /// <summary>
-        /// special instructins for the preparation of the double burger
+        /// if the texas triple burger has bacon
+        /// </summary>
+        public bool Bacon
+        {
+            get { return bacon; }
+            set { bacon = value; }
+        }
+
+        private bool egg = true;
+        /// <summary>
+        /// if the texas triple burger has an egg
+        /// </summary>
+        public bool Egg
+        {
+            get { return egg; }
+            set { egg = value; }
+        }
+
+        /// <summary>
+        /// special instructins for the preparation of the texas triple burger
         /// </summary>
         public List<String> SpecialInstructions
         {
@@ -128,6 +148,8 @@ namespace CowboyCafe.Data
                 if (!tomato) instructions.Add("hold tomato");
                 if (!lettuce) instructions.Add("hold lettuce");
                 if (!mayo) instructions.Add("hold mayo");
+                if (!bacon) instructions.Add("hold bacon");
+                if (!egg) instructions.Add("hold egg");
 
                 return instructions;
 
