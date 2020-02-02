@@ -31,6 +31,9 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// Special instructions for the preparation of the ribs 
+        /// </summary>
         public List<string> SpecialInstructions
         {
             get
