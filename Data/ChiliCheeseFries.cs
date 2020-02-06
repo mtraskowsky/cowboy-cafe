@@ -4,8 +4,14 @@ using System.Text;
 
 namespace CowboyCafe.Data
 {
+    /// <summary>
+    /// A class representing the chili cheese fries side
+    /// </summary>
     public class ChiliCheeseFries : Side
     {
+        /// <summary>
+        /// the calories of the chili cheese fries, depending on size
+        /// </summary>
         public override uint Calories
         {
             get
@@ -21,11 +27,12 @@ namespace CowboyCafe.Data
                     default:
                         throw new NotImplementedException();
                 }
-                //if (Size == Size.Small) { }
-                //else if (Size == Size.Medium) { }
-                //else { }
             }
         }
+
+        /// <summary>
+        /// the price of the chili cheese fries, depending on size
+        /// </summary>
         public override double Price
         {
             get
