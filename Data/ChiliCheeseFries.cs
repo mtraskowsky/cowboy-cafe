@@ -26,6 +26,22 @@ namespace CowboyCafe.Data
                 //else { }
             }
         }
-        public override double Price => throw new NotImplementedException();
+        public override double Price
+        {
+            get
+            {
+                switch(Size)
+                {
+                    case Size.Small:
+                        return 1.99;
+                    case Size.Medium:
+                        return 2.99;
+                    case Size.Large:
+                        return 3.99;
+                    default:
+                        throw new NotImplementedException();
+                }
+            }
+        }
     }
 }
