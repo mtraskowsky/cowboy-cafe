@@ -1,4 +1,12 @@
-﻿using System;
+﻿/*
+* Author: Maria Traskowsky
+
+* Class name: Entree
+
+* Purpose: Implements abstract base class called Entree and defines various properties including Price, Calories, and SpecialInstructions
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

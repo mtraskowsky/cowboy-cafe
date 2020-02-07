@@ -1,4 +1,12 @@
-﻿using System;
+﻿/*
+* Author: Maria Traskowsky
+
+* Class name: TexasTripleBurger
+
+* Purpose: Implements the Texas Triple Burger Entree
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

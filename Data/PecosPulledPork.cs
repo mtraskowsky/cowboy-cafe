@@ -1,4 +1,12 @@
-﻿using System;
+﻿/*
+* Author: Maria Traskowsky
+
+* Class name: PecosPulledPork
+
+* Purpose: Implements the Peco's Pulled Prok Entree
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

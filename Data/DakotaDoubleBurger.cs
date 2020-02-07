@@ -1,4 +1,12 @@
-﻿using System;
+﻿/*
+* Author: Maria Traskowsky
+
+* Class name: AngryChicken
+
+* Purpose: Implements the Dakota Double Burger Entree
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

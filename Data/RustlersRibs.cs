@@ -1,4 +1,12 @@
-﻿using System;
+﻿/*
+* Author: Maria Traskowsky
+
+* Class name: RustlersRibs
+
+* Purpose: Implements the Rustler's Ribs Entree
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

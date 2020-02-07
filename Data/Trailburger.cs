@@ -1,4 +1,12 @@
-﻿using System;
+﻿/*
+* Author: Maria Traskowsky
+
+* Class name: Trailburger
+
+* Purpose: Implements the Trail Burger Entree
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

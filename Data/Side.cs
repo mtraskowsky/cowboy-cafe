@@ -1,4 +1,14 @@
-﻿using System;
+﻿/*
+* Author: Nathan Bean
+
+* Edited by: Maria Traskowsky
+
+* Class name: Side
+
+* Purpose: Implements the abstrat base class for Side
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
