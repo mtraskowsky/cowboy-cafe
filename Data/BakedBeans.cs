@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+* Author: Maria Traskowsky
+
+* Class name: BakedBeans
+
+* Purpose: Implements the Baked Beans side and inherits from the Side class
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,7 +14,7 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the baked beans side
     /// </summary>
-    public class BakedBeans :Side
+    public class BakedBeans : Side
     {
         /// <summary>
         /// the calories of the baked beans side, depending on size

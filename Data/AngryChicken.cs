@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+* Author: Maria Traskowsky
+
+* Class name: AngryChicken
+
+* Purpose: Implements the Angry Chicken Entree
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 

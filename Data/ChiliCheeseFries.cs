@@ -1,4 +1,12 @@
-﻿using System;
+﻿/*
+* Author: Maria Traskowsky
+
+* Class name: ChiliCheeseFries
+
+* Purpose: Implements the Chili Cheese Fries side and inherits from the Side class
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

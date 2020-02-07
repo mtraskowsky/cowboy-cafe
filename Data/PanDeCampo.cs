@@ -1,4 +1,12 @@
-﻿using System;
+﻿/*
+* Author: Maria Traskowsky
+
+* Class name: PanDeCampo
+
+* Purpose: Implements the Pan de Campo side and inherits from the Side class
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

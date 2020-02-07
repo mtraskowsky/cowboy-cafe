@@ -1,4 +1,12 @@
-﻿using System;
+﻿/*
+* Author: Maria Traskowsky
+
+* Class name: CornDodgers
+
+* Purpose: Implements the Corn Dodgers side and inherits from the Side class
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
