@@ -63,6 +63,12 @@ namespace CowboyCafe.Data
                 }
             }
         }
+        private bool ice = true;
+        public override bool Ice
+        {
+            get { return ice; }
+            set { ice = value; }
+        }
 
         private bool sweet = true;
         public bool Sweet
@@ -78,6 +84,18 @@ namespace CowboyCafe.Data
             set { lemon = value; }
         }
 
-        public override List<string> SpecialInstructions { get; }
+        public override List<string> SpecialInstructions
+        {
+            get
+            {
+                var instructions = new List<string>();
+
+                if (!ice) instructions.Add("Hold ice");
+                if (lemon) instructions.Add("Add Lemon");
+
+                return instructions;
+            }
+          
+        }
     }
 }
