@@ -23,5 +23,61 @@ namespace CowboyCafe.Data
                 }
             }
         }
+
+
+        public override uint Calories
+        {
+            get
+            {
+                switch(Size)
+                {
+                    case Size.Small:
+                        if (sweet == false)
+                        {
+                            return 5;
+                        }
+                        else
+                        {
+                            return 10;
+                        }
+                    case Size.Medium:
+                        if (sweet == false)
+                        {
+                            return 11;
+                        }
+                        else
+                        {
+                            return 22;
+                        }
+                    case Size.Large:
+                        if (sweet == false)
+                        {
+                            return 18;
+                        }
+                        else
+                        {
+                            return 36;
+                        }
+                    default:
+                        throw new NotImplementedException();
+                }
+            }
+        }
+
+        private bool sweet = true;
+        public bool Sweet
+        {
+            get { return sweet; }
+            set { sweet = value; }
+        }
+
+        private bool lemon = false;
+        public bool Lemon
+        {
+            get { return lemon; }
+            set { lemon = value; }
+        }
+
+        public override List<string> SpecialInstructions { get; }
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CowboyCafe.Data
 {
-    class JerkedSoda : Drink
+    class JerkedSoda
     {
     }
 }
