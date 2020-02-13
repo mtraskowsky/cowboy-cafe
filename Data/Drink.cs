@@ -4,7 +4,8 @@ using System.Text;
 
 namespace CowboyCafe.Data
 {
-    class Drink
+    public class Drink
     {
+        public Size Size { get; set; } = Size.Small;
     }
 }
