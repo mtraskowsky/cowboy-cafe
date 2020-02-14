@@ -63,13 +63,17 @@ namespace CowboyCafe.Data
                 }
             }
         }
-        /*private bool ice = true;
+        /*
+        private bool ice = true;
         public override bool Ice
         {
             get { return ice; }
             set { ice = value; }
         }
         */
+
+        //public override bool Ice { get => base.Ice; set => base.Ice = value; }
+
         private bool sweet = true;
         public bool Sweet
         {
@@ -90,13 +94,11 @@ namespace CowboyCafe.Data
             {
                 var instructions = new List<string>();
 
-                if (!Ice) instructions.Add("Hold ice");
+                if (!Ice) instructions.Add("Hold Ice");
                 if (lemon) instructions.Add("Add Lemon");
-
 
                 return instructions;
             }
-          
         }
     }
 }
