@@ -1,11 +1,23 @@
-﻿using System;
+﻿/*
+* Author: Maria Traskowsky
+* Class name: Water
+* Purpose: Implements the Water drink and inherits from the Drink class
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace CowboyCafe.Data
 {
+    /// <summary>
+    /// a class representing water
+    /// </summary>
     public class Water : Drink
     {
+        /// <summary>
+        /// the price of the water, depending on size
+        /// </summary>
         public override double Price
         {
             get
@@ -24,6 +36,9 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// the calories of the water, depending on size
+        /// </summary>
         public override uint Calories
         {
             get
@@ -42,6 +57,9 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// if the water has lemon
+        /// </summary>
         private bool lemon = false;
         public bool Lemon
         {
@@ -49,6 +67,9 @@ namespace CowboyCafe.Data
             set { lemon = value; }
         }
 
+        /// <summary>
+        /// special instructions for water
+        /// </summary>
         public override List<string> SpecialInstructions
         {
             get

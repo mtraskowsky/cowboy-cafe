@@ -1,11 +1,23 @@
-﻿using System;
+﻿/*
+* Author: Maria Traskowsky
+* Class name: CowboyCoffee
+* Purpose: Implements the Cowboy Coffee drink and inherits from the Drink class
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace CowboyCafe.Data
 {
+    /// <summary>
+    /// a class representing cowboy coffee
+    /// </summary>
     public class CowboyCoffee : Drink
     {
+        /// <summary>
+        /// whether the coffee has ice
+        /// </summary>
         private bool ice = false;
         public override bool Ice
         {
@@ -13,6 +25,9 @@ namespace CowboyCafe.Data
             set { ice = value; }
         }
 
+        /// <summary>
+        /// the price of the coffee, depending on size
+        /// </summary>
         public override double Price
         {
             get
@@ -31,6 +46,9 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// the calories in the coffee
+        /// </summary>
         public override uint Calories
         {
             get
@@ -49,8 +67,14 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// whether the coffee is decaf or not
+        /// </summary>
         public bool Decaf { get; set; }
 
+        /// <summary>
+        /// if the coffee will have room for cream or not
+        /// </summary>
         private bool roomforcream = false;
         public bool RoomForCream
         {
@@ -58,6 +82,9 @@ namespace CowboyCafe.Data
             set { roomforcream = value; }
         }
 
+        /// <summary>
+        /// special instructions for the preparation of the coffee
+        /// </summary>
         public override List<string> SpecialInstructions
         {
             get
