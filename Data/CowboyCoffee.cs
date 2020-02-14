@@ -58,11 +58,11 @@ namespace CowboyCafe.Data
             set { roomforcream = value; }
         }
 
-        public override List<String> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {
-                var instructions = new List<String>();
+                var instructions = new List<string>();
 
                 if (ice) instructions.Add("Add Ice");
                 if (roomforcream) instructions.Add("Room for Cream");
