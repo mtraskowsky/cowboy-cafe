@@ -1,11 +1,23 @@
+/*
+* Author: Maria Traskowsky
+* Class name: TexasTea
+* Purpose: Implements the Texas tea drink and inherits from the Drink class
+*/
+
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace CowboyCafe.Data
 {
+    /// <summary>
+    /// a class representing the texas tea drink
+    /// </summary>
     public class TexasTea : Drink
     {
+        /// <summary>
+        /// the price of the texas tea, depending on size
+        /// </summary>
         public override double Price
         {
             get
@@ -24,7 +36,9 @@ namespace CowboyCafe.Data
             }
         }
 
-
+        /// <summary>
+        /// the calories of the tea, depending on tea and sweetener
+        /// </summary>
         public override uint Calories
         {
             get
@@ -32,48 +46,26 @@ namespace CowboyCafe.Data
                 switch(Size)
                 {
                     case Size.Small:
-                        if (sweet == false)
-                        {
-                            return 5;
-                        }
-                        else
-                        {
-                            return 10;
-                        }
+                        if (sweet == false) return 5;
+                        else return 10;
+
                     case Size.Medium:
-                        if (sweet == false)
-                        {
-                            return 11;
-                        }
-                        else
-                        {
-                            return 22;
-                        }
+                        if (sweet == false) return 11;
+                        else return 22;
+
                     case Size.Large:
-                        if (sweet == false)
-                        {
-                            return 18;
-                        }
-                        else
-                        {
-                            return 36;
-                        }
+                        if (sweet == false) return 18;
+                        else return 36;
+
                     default:
                         throw new NotImplementedException();
                 }
             }
         }
-        /*
-        private bool ice = true;
-        public override bool Ice
-        {
-            get { return ice; }
-            set { ice = value; }
-        }
-        */
-
-        //public override bool Ice { get => base.Ice; set => base.Ice = value; }
-
+       
+        /// <summary>
+        /// if the tea is sweet
+        /// </summary>
         private bool sweet = true;
         public bool Sweet
         {
@@ -81,6 +73,9 @@ namespace CowboyCafe.Data
             set { sweet = value; }
         }
 
+        /// <summary>
+        /// if the tea has lemon
+        /// </summary>
         private bool lemon = false;
         public bool Lemon
         {
@@ -88,6 +83,9 @@ namespace CowboyCafe.Data
             set { lemon = value; }
         }
 
+        /// <summary>
+        /// special instructions for the preparation of the tea
+        /// </summary>
         public override List<string> SpecialInstructions
         {
             get
