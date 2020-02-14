@@ -4,7 +4,12 @@ using System.Text;
 
 namespace CowboyCafe.Data
 {
-    class SodaFlavor
+    public enum SodaFlavor
     {
+        CreamSoda,
+        OrangeSoda,
+        Sarsaparilla,
+        BirchBeer,
+        RootBeer
     }
 }
