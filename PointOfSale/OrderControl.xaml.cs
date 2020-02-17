@@ -21,7 +21,8 @@ namespace PointOfSale
         public OrderControl()
         {
             InitializeComponent();
-            AddTrailBurgerButton.Height = 90;
+            //AddTrailBurgerButton.Height = 90;
+            // event handler //AddTrailBurgerButton.Click 
         }
     }
 }
