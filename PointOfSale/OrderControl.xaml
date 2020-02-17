@@ -6,6 +6,12 @@
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Height" Value="50px"/>
+            <Setter Property="FontSize" Value="18"/>
+        </Style>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -19,7 +25,7 @@
             <Button>Angry Chicken</Button>
             <Button>Rustler's Ribs</Button>
             <Button>Peco's Pulled Pork</Button>
-            <Button>Trail Burger</Button>
+            <Button Name="AddTrailBurgerButton">Trail Burger</Button>
             <Button>Dakota Double Burger</Button>
             <Button>Texas Triple Burger</Button>
         </StackPanel>
