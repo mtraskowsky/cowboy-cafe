@@ -21,7 +21,7 @@
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0">
             <TextBlock TextAlignment="Center" FontSize="21">Entree</TextBlock>
-            <Button>Cowpoke Chili</Button>
+            <Button Name ="AddCowpokeChiliButton">Cowpoke Chili</Button>
             <Button>Angry Chicken</Button>
             <Button>Rustler's Ribs</Button>
             <Button>Peco's Pulled Pork</Button>
@@ -45,6 +45,7 @@
         </StackPanel>
         <StackPanel Grid.Column="3">
             <TextBlock TextAlignment="Center" FontSize="21">Order</TextBlock>
+            <ListView Name= "OrderListView"></ListView>
         </StackPanel>
     </Grid>
 </UserControl>
