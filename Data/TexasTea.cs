@@ -98,5 +98,7 @@ namespace CowboyCafe.Data
                 return instructions;
             }
         }
+
+        // to string needs to say either sweet or plain
     }
 }
