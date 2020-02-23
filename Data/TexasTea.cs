@@ -100,5 +100,20 @@ namespace CowboyCafe.Data
         }
 
         // to string needs to say either sweet or plain
+        /// <summary>
+        /// Returns the string representation of this object
+        /// </summary>
+        /// <returns>The string describing the texas tea</returns>
+        public override string ToString()
+        {
+            if (sweet)
+            { 
+                return Size + " " + "Texas Sweet Tea";
+            }
+            else
+            {
+                return Size + " " + "Texas Plain Tea";
+            }
+        }
     }
 }
