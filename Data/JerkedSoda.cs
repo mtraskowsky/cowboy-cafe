@@ -81,5 +81,14 @@ namespace CowboyCafe.Data
                 return instructions;
             }
         }
+        
+        /// <summary>
+        /// Returns the string representation of this object
+        /// </summary>
+        /// <returns>The string describing the jerked soda</returns>
+        public override string ToString()
+        {
+            return Size + " " Flavor + " " + "Corn Dodgers";
+        }
     }
 }
