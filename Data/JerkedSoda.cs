@@ -88,7 +88,7 @@ namespace CowboyCafe.Data
         /// <returns>The string describing the jerked soda</returns>
         public override string ToString()
         {
-            return Size + " " Flavor + " " + "Jerked Soda";
+            return Size + " " + Flavor + " " + "Jerked Soda";
         }
     }
 }
