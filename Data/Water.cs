@@ -86,7 +86,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Returns the string representation of this object
         /// </summary>
-        /// <returns>The string describing the jerked soda</returns>
+        /// <returns>The string describing the water</returns>
         public override string ToString()
         {
             return Size + " " + "Water";
