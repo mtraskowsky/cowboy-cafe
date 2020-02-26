@@ -4,7 +4,20 @@ using System.Text;
 
 namespace CowboyCafe.Data
 {
-    class Order
+    public class Order
     {
+        public IEnumerable<IOrderItem> Items => throw new NotImplementedException();
+
+        public double Subtotal => 0;
+
+        public void Add(IOrderItem item)
+        {
+
+        }
+
+        public void Remove(IOrderItem item)
+        {
+
+        }
     }
 }
