@@ -76,7 +76,7 @@ namespace CowboyCafe.DataTests
             };
 
             var order = new Order();
-            foreach(var item in items)
+            foreach(var item in items) 
             {
                 order.Add(item);
             }
