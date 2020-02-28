@@ -59,6 +59,19 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
+        /// special instructions for the preparation of the baked beans
+        /// </summary>
+        public override List<string> SpecialInstructions
+        {
+            get
+            {
+                List<string> instructions = new List<string>();
+
+                return instructions;
+            }
+        }
+
+        /// <summary>
         /// Returns the string representation of this object
         /// </summary>
         /// <returns>The string describing the baked beans</returns>
