@@ -61,7 +61,7 @@ namespace CowboyCafe.Data
 
 
         /// <summary>
-        /// special instructions for the preparation of the baked beans
+        /// special instructions for the preparation of the chili cheese fries
         /// </summary>
         public override List<string> SpecialInstructions
         {

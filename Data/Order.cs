@@ -21,7 +21,7 @@ namespace CowboyCafe.Data
         {
             get
             {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(subtotal));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("subtotal"));
                 return subtotal;
             }
         }

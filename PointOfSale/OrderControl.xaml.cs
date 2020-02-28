@@ -25,6 +25,7 @@ namespace PointOfSale
 
             // Click events for the entrees
             AddCowpokeChiliButton.Click += OnAddCowpokeChiliButtonClicked;
+            AddCowpokeChiliButton.Click += AddCowpokeChiliToSummaryControl;
             AddRustlersRibsButton.Click += OnAddRustlersRibsButtonClicked;
             AddPecosPulledPorkButton.Click += OnAddPecosPulledPorkButtonClicked;
             AddTrailBurgerButton.Click += OnAddTrailBurgerButtonClicked;
@@ -44,6 +45,15 @@ namespace PointOfSale
             AddCowboyCoffeeButton.Click += OnAddCowboyCoffeeButtonClicked;
             AddWaterButton.Click += OnAddWaterButtonClicked;
         }
+
+
+        void AddCowpokeChiliToSummaryControl(object sender, RoutedEventArgs e)
+        {
+            OrderSummaryControl.Items.Add(new CowpokeChili());
+        }
+
+
+
 
         //ENTREES
         /// <summary>
