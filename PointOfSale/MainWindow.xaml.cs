@@ -12,7 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using System.ComponentModel;
+using CowboyCafe.Data;
 namespace PointOfSale
 {
     /// <summary>
@@ -23,6 +24,7 @@ namespace PointOfSale
         public MainWindow()
         {
             InitializeComponent();
+
         }
     }
 }

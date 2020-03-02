@@ -13,39 +13,11 @@
         </Style>
     </UserControl.Resources>
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0">
-            <TextBlock TextAlignment="Center" FontSize="21">Entree</TextBlock>
-            <Button Name ="AddCowpokeChiliButton">Cowpoke Chili</Button>
-            <Button Name ="AddAngryChickenButton">Angry Chicken</Button>
-            <Button Name ="AddRustlersRibsButton">Rustler's Ribs</Button>
-            <Button Name ="AddPecosPulledPorkButton">Peco's Pulled Pork</Button>
-            <Button Name ="AddTrailBurgerButton">Trail Burger</Button>
-            <Button Name ="AddDakotaDoubleBurgerButton">Dakota Double Burger</Button>
-            <Button Name ="AddTexasTripleBurgerButton">Texas Triple Burger</Button>
-        </StackPanel>
-        <StackPanel Grid.Column="1">
-            <TextBlock TextAlignment="Center" FontSize="21">Side</TextBlock>
-            <Button Name ="AddChiliCheeseFriesButton">Chili Cheeese Fries</Button>
-            <Button Name ="AddCornDodgersButton">Corn Dodgers</Button>
-            <Button Name ="AddPanDeCampoButton">Pan de Campo</Button>
-            <Button Name ="AddBakedBeansButton">Baked Beans</Button>
-        </StackPanel>
-        <StackPanel Grid.Column="2">
-            <TextBlock TextAlignment="Center" FontSize="21">Drinks</TextBlock>
-            <Button Name ="AddJerkedSodaButton">Jerked Soda</Button>
-            <Button Name ="AddTexasTeaButton">Texas Tea</Button>
-            <Button Name ="AddCowboyCoffeeButton">Cowboy Coffee</Button>
-            <Button Name ="AddWaterButton">Water</Button>
-        </StackPanel>
+        <local:MenuItemSelectionControl/>
         <StackPanel Grid.Column="3">
             <TextBlock TextAlignment="Center" FontSize="21">Order</TextBlock>
-            <ListView Name= "OrderListView"></ListView>
+            <ListView Name="OrderSumControlListView"></ListView>
+            <local:OrderSummaryControl/>
         </StackPanel>
     </Grid>
 </UserControl>

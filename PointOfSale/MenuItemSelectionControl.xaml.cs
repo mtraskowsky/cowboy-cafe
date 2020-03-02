@@ -21,6 +21,13 @@ namespace PointOfSale
         public MenuItemSelectionControl()
         {
             InitializeComponent();
+
+            AddCornDodgersButton.Click += OnAddCowpokeChiliButtonClicked;
+        }
+
+        void OnAddCowpokeChiliButtonClicked(object sender, RoutedEventArgs e)
+        {
+            //OrderSummaryControl.Items.Add(new CowpokeChili());
         }
     }
 }
