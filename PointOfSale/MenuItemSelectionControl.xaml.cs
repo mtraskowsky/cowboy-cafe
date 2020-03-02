@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CowboyCafe.Data;
 
 namespace PointOfSale
 {
@@ -22,12 +23,15 @@ namespace PointOfSale
         {
             InitializeComponent();
 
-            AddCornDodgersButton.Click += OnAddCowpokeChiliButtonClicked;
+            AddCowpokeChiliButton.Click += OnAddCowpokeChiliButtonClicked;
         }
 
         void OnAddCowpokeChiliButtonClicked(object sender, RoutedEventArgs e)
         {
-            //OrderSummaryControl.Items.Add(new CowpokeChili());
+            if (DataContext is Order data) // checks if you can cast it and if assigns it to data
+            {
+                data.Add(new CowpokeChili());
+            }
         }
     }
 }

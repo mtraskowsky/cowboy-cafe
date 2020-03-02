@@ -19,10 +19,14 @@ namespace CowboyCafe.Data
         // need to notify the property changed event (PropertyChanged?.Invoke) when subtotal changes
         public double Subtotal
         {
+            
             get
             {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("subtotal"));
                 return subtotal;
+            }
+            set
+            {
+                subtotal = value;
             }
         }
 
@@ -40,6 +44,7 @@ namespace CowboyCafe.Data
         {
             items.Add(item);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
             subtotal += item.Price;
         }
 

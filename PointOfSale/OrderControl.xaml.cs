@@ -23,10 +23,17 @@ namespace PointOfSale
         {
             InitializeComponent();
 
-            // Click events for the entrees
-            /* AddCowpokeChiliButton.Click += OnAddCowpokeChiliButtonClicked;
-             AddCowpokeChiliButton.Click += AddCowpokeChiliToSummaryControl;
+            var data = new Order();
+            this.DataContext = data;
 
+            //cancel button
+            //complete button
+
+
+            // Click events for the entrees
+            //AddCowpokeChiliButton.Click += OnAddCowpokeChiliButtonClicked;
+            //AddCowpokeChiliButton.Click += AddCowpokeChiliToSummaryControl;
+            /*
              AddRustlersRibsButton.Click += OnAddRustlersRibsButtonClicked;
              AddPecosPulledPorkButton.Click += OnAddPecosPulledPorkButtonClicked;
              AddTrailBurgerButton.Click += OnAddTrailBurgerButtonClicked;
@@ -50,7 +57,7 @@ namespace PointOfSale
 
             void AddCowpokeChiliToSummaryControl(object sender, RoutedEventArgs e)
             {
-                OrderSumControlListView.Items.Add(new CowpokeChili());
+                data.Add(new CowpokeChili());
             }
 
 
