@@ -9,11 +9,15 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <local:MenuItemSelectionControl Grid.Column="0"/>
-        <StackPanel Grid.Column="3">
-            <local:OrderSummaryControl Grid.Column="1"/>
-        </StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <local:MenuItemSelectionControl Grid.ColumnSpan="3" Grid.Row="1"/>
+        <local:OrderSummaryControl Grid.Column="4" Grid.Row="1"/>
     </Grid>
 </UserControl>
