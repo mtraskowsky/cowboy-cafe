@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="900">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -13,7 +13,6 @@
         </Grid.ColumnDefinitions>
         <local:MenuItemSelectionControl Grid.Column="0"/>
         <StackPanel Grid.Column="3">
-            <TextBlock TextAlignment="Center" FontSize="21">Order</TextBlock>
             <local:OrderSummaryControl Grid.Column="1"/>
         </StackPanel>
     </Grid>

@@ -42,17 +42,18 @@ namespace CowboyCafe.Data
 
         public void Add(IOrderItem item)
         {
+            subtotal += item.Price;
             items.Add(item);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
-            subtotal += item.Price;
         }
 
         public void Remove(IOrderItem item)
         {
+            subtotal -= item.Price;
             items.Remove(item);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
-            subtotal -= item.Price;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
         }
 
         public Order()
