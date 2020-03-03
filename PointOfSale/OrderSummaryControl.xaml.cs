@@ -23,22 +23,6 @@ namespace PointOfSale
         {
             InitializeComponent();
 
-
-
         }
-
-       //  if (DataContext is Order data)
-         //   {
-          //      data.Add();
-           //     ItemToAdd.Text = "";
-           // }
-
-    //AddCowpokeChiliButton.Click += OnAddCowpokeChiliButtonClicked;
-
-    public void OnAddCowpokeChiliButtonClicked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
     }
 }

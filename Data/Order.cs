@@ -8,18 +8,30 @@ namespace CowboyCafe.Data
     public class Order : INotifyPropertyChanged
     {
 
+        /// <summary>
+        /// a variable to track changes in the order number
+        /// </summary>
         private static uint lastOrderNumber = 0;
 
+        /// <summary>
+        /// List of items in the order
+        /// </summary>
         public List<IOrderItem> items = new List<IOrderItem>(); 
 
-//        public IEnumerable<IOrderItem> Items => throw new NotImplementedException();
+        /// <summary>
+        /// IEnumberable list of items 
+        /// </summary>
         public IEnumerable<IOrderItem> Items => items.ToArray();
 
+        /// <summary>
+        /// private backing variable for subtotal method
+        /// </summary>
         private double subtotal;
-        // need to notify the property changed event (PropertyChanged?.Invoke) when subtotal changes
+        /// <summary>
+        /// gets and sets the subtotal of the items in the order
+        /// </summary>
         public double Subtotal
         {
-            
             get
             {
                 return subtotal;
@@ -30,16 +42,25 @@ namespace CowboyCafe.Data
             }
         }
 
-    // order number never changes
-    public uint OrderNumber {
-            get
-            {
-                return lastOrderNumber;
+        /// <summary>
+        /// tracks the order number
+        /// </summary>
+        public uint OrderNumber {
+                get
+                {
+                    return lastOrderNumber;
+                }
             }
-        }
 
+        /// <summary>
+        /// PropertyChanged helps us track changing values when we use data binding
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// Adds an order to the list of items, updates subtotal, and communicates with PropertyChanged
+        /// </summary>
+        /// <param name="item"></param>
         public void Add(IOrderItem item)
         {
             subtotal += item.Price;
@@ -48,6 +69,10 @@ namespace CowboyCafe.Data
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
         }
 
+        /// <summary>
+        /// Removes an order from the list of items, updates subtotal, and communicates with PropertyChanged
+        /// </summary>
+        /// <param name="item"></param>
         public void Remove(IOrderItem item)
         {
             subtotal -= item.Price;
@@ -56,6 +81,9 @@ namespace CowboyCafe.Data
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
         }
 
+        /// <summary>
+        /// Updates the order number when a new instance of Order() is created
+        /// </summary>
         public Order()
         {
             lastOrderNumber += 1;

@@ -17,6 +17,9 @@
             <RowDefinition Height="30"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <Button Name="ItemSelectionButton" Grid.Column="0" Grid.Row="0">Item Selection</Button>
+        <Button Name="CancelOrderButton" Grid.Column="1" Grid.Row="0">Cancel Order</Button>
+        <Button Name="CompleteOrderButton"  Grid.Column="2" Grid.Row="0">Complete Order</Button>
         <local:MenuItemSelectionControl Grid.ColumnSpan="3" Grid.Row="1"/>
         <local:OrderSummaryControl Grid.Column="4" Grid.Row="1"/>
     </Grid>
