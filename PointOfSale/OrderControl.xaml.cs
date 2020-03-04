@@ -37,6 +37,11 @@ namespace PointOfSale
             CompleteOrderButton.Click += OnCompleteOrderButtonClicked;
         }
 
+        public void SwapScreen(UIElement element)
+        {
+            Container.Child = element;
+        }
+
         /// <summary>
         /// Contains the behavior after the complete order button is pressed
         /// </summary>

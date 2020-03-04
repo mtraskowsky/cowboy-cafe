@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CowboyCafe.Data;
+using CowboyCafe.Extensions;
 
 namespace PointOfSale
 {
@@ -19,12 +20,15 @@ namespace PointOfSale
     /// </summary>
     public partial class MenuItemSelectionControl : UserControl
     {
+        private OrderControl orderControl;
+
         /// <summary>
         /// A user control containing buttons for entrees, sides, and drinks
         /// </summary>
         public MenuItemSelectionControl()
         {
             InitializeComponent();
+
 
             // Click events for the entrees
             AddCowpokeChiliButton.Click += OnAddCowpokeChiliButtonClicked;
@@ -53,11 +57,14 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void OnAddCowpokeChiliButtonClicked(object sender, RoutedEventArgs e)
+        public void OnAddCowpokeChiliButtonClicked(object sender, RoutedEventArgs e)
         {
+            var orderControl = this.FindAncestor<OrderControl>();
+
             if (DataContext is Order data) // checks if you can cast it and if assigns it to data
             {
                 data.Add(new CowpokeChili());
+                orderControl.SwapScreen(new CustomizeCowpokeChili());
             }
         }
 
@@ -68,7 +75,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void OnAddRustlersRibsButtonClicked(object sender, RoutedEventArgs e)
+        public void OnAddRustlersRibsButtonClicked(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data) // checks if you can cast it and if assigns it to data
             {
@@ -81,7 +88,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void OnAddPecosPulledPorkButtonClicked(object sender, RoutedEventArgs e)
+        public void OnAddPecosPulledPorkButtonClicked(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data) // checks if you can cast it and if assigns it to data
             {
@@ -94,7 +101,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void OnAddTrailBurgerButtonClicked(object sender, RoutedEventArgs e)
+        public void OnAddTrailBurgerButtonClicked(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data) // checks if you can cast it and if assigns it to data
             {
@@ -107,7 +114,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void OnAddDakotaDoubleBurgerButtonClicked(object sender, RoutedEventArgs e)
+        public void OnAddDakotaDoubleBurgerButtonClicked(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data) // checks if you can cast it and if assigns it to data
             {
@@ -120,7 +127,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void OnAddTexasTripleBurgerButtonClicked(object sender, RoutedEventArgs e)
+        public void OnAddTexasTripleBurgerButtonClicked(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data) // checks if you can cast it and if assigns it to data
             {
@@ -133,7 +140,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void OnAddAngryChickenButtonClicked(object sender, RoutedEventArgs e)
+        public void OnAddAngryChickenButtonClicked(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data) // checks if you can cast it and if assigns it to data
             {
@@ -150,7 +157,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void OnAddChiliCheeseFriesButtonClicked(object sender, RoutedEventArgs e)
+        public void OnAddChiliCheeseFriesButtonClicked(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data) // checks if you can cast it and if assigns it to data
             {
@@ -163,7 +170,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void OnAddCornDodgersButtonClicked(object sender, RoutedEventArgs e)
+        public void OnAddCornDodgersButtonClicked(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data) // checks if you can cast it and if assigns it to data
             {
@@ -176,7 +183,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void OnAddPanDeCampoButtonClicked(object sender, RoutedEventArgs e)
+        public void OnAddPanDeCampoButtonClicked(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data) // checks if you can cast it and if assigns it to data
             {
@@ -189,7 +196,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void OnAddBakedBeansButtonClicked(object sender, RoutedEventArgs e)
+        public void OnAddBakedBeansButtonClicked(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data) // checks if you can cast it and if assigns it to data
             {
@@ -204,7 +211,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void OnAddJerkedSodaButtonClicked(object sender, RoutedEventArgs e)
+        public void OnAddJerkedSodaButtonClicked(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data) // checks if you can cast it and if assigns it to data
             {
@@ -217,7 +224,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void OnAddTexasTeaButtonClicked(object sender, RoutedEventArgs e)
+        public void OnAddTexasTeaButtonClicked(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data) // checks if you can cast it and if assigns it to data
             {
@@ -230,7 +237,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void OnAddCowboyCoffeeButtonClicked(object sender, RoutedEventArgs e)
+        public void OnAddCowboyCoffeeButtonClicked(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data) // checks if you can cast it and if assigns it to data
             {
@@ -243,7 +250,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void OnAddWaterButtonClicked(object sender, RoutedEventArgs e)
+        public void OnAddWaterButtonClicked(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data) // checks if you can cast it and if assigns it to data
             {

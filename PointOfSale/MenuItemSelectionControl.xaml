@@ -20,7 +20,7 @@
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0">
             <TextBlock TextAlignment="Center" FontSize="21">Entree</TextBlock>
-            <Button Name ="AddCowpokeChiliButton">Cowpoke Chili</Button>
+            <Button Name ="AddCowpokeChiliButton" Tag="CowpokeChili">Cowpoke Chili</Button>
             <Button Name ="AddAngryChickenButton">Angry Chicken</Button>
             <Button Name ="AddRustlersRibsButton">Rustler's Ribs</Button>
             <Button Name ="AddPecosPulledPorkButton">Peco's Pulled Pork</Button>
