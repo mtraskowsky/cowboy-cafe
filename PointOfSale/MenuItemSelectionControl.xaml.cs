@@ -63,8 +63,11 @@ namespace PointOfSale
 
             if (DataContext is Order data) // checks if you can cast it and if assigns it to data
             {
-                data.Add(new CowpokeChili());
-                orderControl.SwapScreen(new CustomizeCowpokeChili());
+                var entree = new CowpokeChili();
+                var screen = new CustomizeCowpokeChili();
+                screen.DataContext = entree;
+                data.Add(entree);
+                orderControl.SwapScreen(screen);
             }
         }
 
@@ -77,9 +80,12 @@ namespace PointOfSale
         /// <param name="e"></param>
         public void OnAddRustlersRibsButtonClicked(object sender, RoutedEventArgs e)
         {
+            var orderControl = this.FindAncestor<OrderControl>();
+
             if (DataContext is Order data) // checks if you can cast it and if assigns it to data
             {
                 data.Add(new RustlersRibs());
+                orderControl.SwapScreen(new CustomizeRustlersRibs());
             }
         }
 
@@ -90,9 +96,12 @@ namespace PointOfSale
         /// <param name="e"></param>
         public void OnAddPecosPulledPorkButtonClicked(object sender, RoutedEventArgs e)
         {
+            var orderControl = this.FindAncestor<OrderControl>();
+
             if (DataContext is Order data) // checks if you can cast it and if assigns it to data
             {
                 data.Add(new PecosPulledPork());
+                orderControl.SwapScreen(new CustomizePecosPulledPork());
             }
         }
 
