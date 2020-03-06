@@ -63,14 +63,38 @@ namespace PointOfSale
 
             if (DataContext is Order data) // checks if you can cast it and if assigns it to data
             {
-                var entree = new CowpokeChili();
+                var item = new CowpokeChili();
                 var screen = new CustomizeCowpokeChili();
-                screen.DataContext = entree;
-                data.Add(entree);
-                orderControl.SwapScreen(screen);
+                screen.DataContext = item;
+                data.Add(item);
+                //orderControl.SwapScreen(screen);
+                AddItemandOpenCustomizationScreen(item, screen);
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="item">The IOrder Item to add</param>
+        /// <param name="screen">The customization screen (or null for none)</param>
+        void AddItemandOpenCustomizationScreen(IOrderItem item, FrameworkElement screen)
+        {
+            // we need to have an Order to add this item to
+            var order = DataContext as Order;
+            if (order == null) throw new Exception("DataContext expected to be an Order insance");
+
+            // not all orderitems needs to be customized
+            if(screen != null)
+            {
+                // we needd to ahve an ordercontrol acenstor to load the customziation screen
+                var orderControl = this.FindAncestor<OrderControl>();
+                if (orderControl == null) throw new Exception("an acenstor of OrderControl");
+
+                // add the item to the customization screen and launch it
+                screen.DataContext = item;
+                orderControl.SwapScreen(screen);
+            }
+        }
 
 
         /// <summary>
