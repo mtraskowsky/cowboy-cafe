@@ -9,6 +9,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
@@ -17,6 +18,9 @@ namespace CowboyCafe.Data
     /// </summary>
     public abstract class Entree : IOrderItem
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+
         /// <summary>
         /// get the price of the entree
         /// </summary>
@@ -31,6 +35,18 @@ namespace CowboyCafe.Data
         /// get the special instructions to go with the entree
         /// </summary>
         public abstract List<string> SpecialInstructions { get;  }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="propertyName"></param>
+        protected void NotifyPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+
+        }
 
     }
 }

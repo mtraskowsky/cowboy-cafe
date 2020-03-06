@@ -9,20 +9,19 @@
 */
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
     /// A class representing the Cowpoke Chili entree
     /// </summary>
-    public class CowpokeChili : Entree, INotifyPropertyChanged
+    public class CowpokeChili : Entree
     {
 
         /// <summary>
         /// The property changed event
         /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        //public event PropertyChangedEventHandler PropertyChanged;
 
         private bool cheese = true;
         /// <summary>
@@ -74,6 +73,7 @@ namespace CowboyCafe.Data
             set { 
                 tortillaStrips = value;
                 NotifyPropertyChanged("TortillaStrips");
+
             }
         }
 
@@ -126,12 +126,14 @@ namespace CowboyCafe.Data
             return "Cowpoke Chili";
         }
 
+        /* moved this to entree
         private void NotifyPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
 
         }
+        */
 
     }
 }
