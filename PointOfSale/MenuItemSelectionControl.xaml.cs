@@ -29,7 +29,6 @@ namespace PointOfSale
         {
             InitializeComponent();
 
-
             // Click events for the entrees
             AddCowpokeChiliButton.Click += OnAddCowpokeChiliButtonClicked;
             AddRustlersRibsButton.Click += OnAddRustlersRibsButtonClicked;
@@ -52,7 +51,35 @@ namespace PointOfSale
             AddWaterButton.Click += OnAddWaterButtonClicked;
         }
 
-        
+
+
+        /// <summary>
+        /// adds the item to the order and opens the customization screen for the user to make selections
+        /// </summary>
+        /// <param name="item">The IOrder Item to add</param>
+        /// <param name="screen">The customization screen (or null for none)</param>
+        void AddItemandOpenCustomizationScreen(IOrderItem item, FrameworkElement screen)
+        {
+            // we need to have an Order to add this item to
+            var order = DataContext as Order;
+            if (order == null) throw new Exception("DataContext expected to be an Order instance");
+
+            // not all orderitems needs to be customized
+            if (screen != null)
+            {
+                // we needd to ahve an ordercontrol acenstor to load the customziation screen
+                var orderControl = this.FindAncestor<OrderControl>();
+                if (orderControl == null) throw new Exception("an acenstor of OrderControl");
+
+                // add the item to the customization screen and launch it
+                screen.DataContext = item;
+                orderControl.SwapScreen(screen);
+            }
+        }
+
+
+
+
         /// <summary>
         /// adds cowpoke chili to ordersummary control and order column on mainwindow
         /// </summary>
@@ -73,30 +100,7 @@ namespace PointOfSale
             }
         }
         
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="item">The IOrder Item to add</param>
-        /// <param name="screen">The customization screen (or null for none)</param>
-        void AddItemandOpenCustomizationScreen(IOrderItem item, FrameworkElement screen)
-        {
-            // we need to have an Order to add this item to
-            var order = DataContext as Order;
-            if (order == null) throw new Exception("DataContext expected to be an Order instance");
-
-            // not all orderitems needs to be customized
-            if(screen != null)
-            {
-                // we needd to ahve an ordercontrol acenstor to load the customziation screen
-                var orderControl = this.FindAncestor<OrderControl>();
-                if (orderControl == null) throw new Exception("an acenstor of OrderControl");
-
-                // add the item to the customization screen and launch it
-                screen.DataContext = item;
-                orderControl.SwapScreen(screen);
-            }
-        }
-
+       
 
         /// <summary>
         /// adds rustlers ribs to ordersummary control and order column on mainwindow
@@ -154,7 +158,14 @@ namespace PointOfSale
         {
             if (DataContext is Order data) // checks if you can cast it and if assigns it to data
             {
-                data.Add(new TrailBurger());
+                //data.Add(new TrailBurger());
+
+                var item = new TrailBurger();
+                var screen = new CustomizeTrailBurger();
+                screen.DataContext = item;
+                data.Add(item);
+                //orderControl.SwapScreen(screen);
+                AddItemandOpenCustomizationScreen(item, screen);
             }
         }
 
@@ -167,7 +178,14 @@ namespace PointOfSale
         {
             if (DataContext is Order data) // checks if you can cast it and if assigns it to data
             {
-                data.Add(new DakotaDoubleBurger());
+                //data.Add(new DakotaDoubleBurger());
+
+                var item = new DakotaDoubleBurger();
+                var screen = new CustomizeDakotaDoubleBurger();
+                screen.DataContext = item;
+                data.Add(item);
+                //orderControl.SwapScreen(screen);
+                AddItemandOpenCustomizationScreen(item, screen);
             }
         }
 
@@ -180,7 +198,13 @@ namespace PointOfSale
         {
             if (DataContext is Order data) // checks if you can cast it and if assigns it to data
             {
-                data.Add(new TexasTripleBurger());
+                //data.Add(new TexasTripleBurger());
+                var item = new TexasTripleBurger();
+                var screen = new CustomizeTexasTripleBurger();
+                screen.DataContext = item;
+                data.Add(item);
+                //orderControl.SwapScreen(screen);
+                AddItemandOpenCustomizationScreen(item, screen);
             }
         }
 
@@ -193,7 +217,13 @@ namespace PointOfSale
         {
             if (DataContext is Order data) // checks if you can cast it and if assigns it to data
             {
-                data.Add(new AngryChicken());
+                //data.Add(new AngryChicken());
+                var item = new AngryChicken();
+                var screen = new CustomizeAngryChicken();
+                screen.DataContext = item;
+                data.Add(item);
+                //orderControl.SwapScreen(screen);
+                AddItemandOpenCustomizationScreen(item, screen);
             }
         }
 
