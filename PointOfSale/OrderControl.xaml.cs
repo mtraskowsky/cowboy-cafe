@@ -32,7 +32,7 @@ namespace PointOfSale
 
            
             // Click events for the buttons
-            //ItemSelectionButton.Click += OnItemSelectionButtonClicked;
+            ItemSelectionButton.Click += OnItemSelectionButtonClicked;
             CancelOrderButton.Click += OnCancelOrderButtonClicked;
             CompleteOrderButton.Click += OnCompleteOrderButtonClicked;
         }
@@ -42,6 +42,12 @@ namespace PointOfSale
             Container.Child = element;
         }
 
+
+        void OnItemSelectionButtonClicked(object sender, RoutedEventArgs e)
+        {
+            var screen = new MenuItemSelectionControl();
+            SwapScreen(screen);
+        }
         /// <summary>
         /// Contains the behavior after the complete order button is pressed
         /// </summary>

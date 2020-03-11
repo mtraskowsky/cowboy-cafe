@@ -52,6 +52,7 @@ namespace PointOfSale
             AddWaterButton.Click += OnAddWaterButtonClicked;
         }
 
+        
         /// <summary>
         /// adds cowpoke chili to ordersummary control and order column on mainwindow
         /// </summary>
@@ -71,7 +72,7 @@ namespace PointOfSale
                 AddItemandOpenCustomizationScreen(item, screen);
             }
         }
-
+        
         /// <summary>
         /// 
         /// </summary>
@@ -81,7 +82,7 @@ namespace PointOfSale
         {
             // we need to have an Order to add this item to
             var order = DataContext as Order;
-            if (order == null) throw new Exception("DataContext expected to be an Order insance");
+            if (order == null) throw new Exception("DataContext expected to be an Order instance");
 
             // not all orderitems needs to be customized
             if(screen != null)
@@ -108,8 +109,16 @@ namespace PointOfSale
 
             if (DataContext is Order data) // checks if you can cast it and if assigns it to data
             {
-                data.Add(new RustlersRibs());
-                orderControl.SwapScreen(new CustomizeRustlersRibs());
+                //data.Add(new RustlersRibs());
+                //orderControl.SwapScreen(new CustomizeRustlersRibs());
+
+
+                var item = new RustlersRibs();
+                var screen = new CustomizeRustlersRibs();
+                screen.DataContext = item;
+                data.Add(item);
+                //orderControl.SwapScreen(screen);
+                AddItemandOpenCustomizationScreen(item, screen);
             }
         }
 
@@ -124,8 +133,15 @@ namespace PointOfSale
 
             if (DataContext is Order data) // checks if you can cast it and if assigns it to data
             {
-                data.Add(new PecosPulledPork());
-                orderControl.SwapScreen(new CustomizePecosPulledPork());
+                //data.Add(new PecosPulledPork());
+                //orderControl.SwapScreen(new CustomizePecosPulledPork());
+
+                var item = new PecosPulledPork();
+                var screen = new CustomizePecosPulledPork();
+                screen.DataContext = item;
+                data.Add(item);
+                //orderControl.SwapScreen(screen);
+                AddItemandOpenCustomizationScreen(item, screen);
             }
         }
 
