@@ -18,16 +18,14 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeCowpokeChili : UserControl
     {
+        /// <summary>
+        /// a way for the user to interact with the order and customize their extras
+        /// </summary>
         public CustomizeCowpokeChili()
         {
             InitializeComponent();
 
-            //CheeseButton.Selected += OnCheeseButtonSelected;
         }
-
-        //void OnCheeseButtonSelected(object sender, RoutedEventArgs e)
-      
-
 
     }
 }

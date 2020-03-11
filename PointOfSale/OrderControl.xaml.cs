@@ -37,17 +37,26 @@ namespace PointOfSale
             CompleteOrderButton.Click += OnCompleteOrderButtonClicked;
         }
 
+        /// <summary>
+        /// A method which will swap the screen displayed to the user between the menu items and item customization
+        /// </summary>
+        /// <param name="element"></param>
         public void SwapScreen(UIElement element)
         {
             Container.Child = element;
         }
 
-
+        /// <summary>
+        /// when the user is done customizing their order, this will take them back to the menu item selection screen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void OnItemSelectionButtonClicked(object sender, RoutedEventArgs e)
         {
             var screen = new MenuItemSelectionControl();
             SwapScreen(screen);
         }
+
         /// <summary>
         /// Contains the behavior after the complete order button is pressed
         /// </summary>

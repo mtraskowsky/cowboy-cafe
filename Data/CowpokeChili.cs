@@ -30,7 +30,8 @@ namespace CowboyCafe.Data
         public bool Cheese
         {
             get { return cheese; }
-            set { 
+            set 
+            { 
                 cheese = value;
                 // set property changed to update the item when it is customized
                 NotifyPropertyChanged("Cheese");
@@ -44,7 +45,8 @@ namespace CowboyCafe.Data
         public bool SourCream
         {
             get { return sourCream; }
-            set { 
+            set 
+            { 
                 sourCream = value;
                 NotifyPropertyChanged("SourCream");
             }
@@ -57,7 +59,8 @@ namespace CowboyCafe.Data
         public bool GreenOnions
         {
             get { return greenOnions; }
-            set {
+            set 
+            {
                 greenOnions = value;
                 NotifyPropertyChanged("GreenOnions");
             }
@@ -70,7 +73,8 @@ namespace CowboyCafe.Data
         public bool TortillaStrips
         {
             get { return tortillaStrips; }
-            set { 
+            set 
+            { 
                 tortillaStrips = value;
                 NotifyPropertyChanged("TortillaStrips");
 

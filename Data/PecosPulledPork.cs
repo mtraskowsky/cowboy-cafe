@@ -43,15 +43,29 @@ namespace CowboyCafe.Data
         public bool Pickle
         {
             get { return pickle; }
-            set { pickle = value; }
+            set 
+            { 
+                pickle = value;
+                NotifyPropertyChanged("Pickle");
+            }
         }
 
+        private bool bread = true;
         /// <summary>
         /// if the entree should be served with bread
         /// </summary>
         public bool Bread
-        { get; set; } = true;
-      
+        {
+            get
+            {
+                return bread;
+            }
+            set
+            {
+                bread = value;
+                NotifyPropertyChanged("Bread");
+            }
+        }      
         /// <summary>
         /// special instructions for the preparation of the pulled pork
         /// </summary>
