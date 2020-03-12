@@ -7,29 +7,27 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="300">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
         <StackPanel Grid.ColumnSpan="2" Grid.Column="0">
             <TextBlock TextAlignment="Center" FontSize="21" Text="{Binding Path=OrderNumber, StringFormat='Order Number: {0}'}"></TextBlock>
-            <ListView ItemsSource="{Binding Path=Items}" Name="OrderSumControlListView" HorizontalContentAlignment="Stretch">
-                <ListView.ItemTemplate>
+            <ListBox ItemsSource="{Binding Path=Items}" Name="OrderSumControlListView" HorizontalContentAlignment="Stretch">
+                <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-                            <TextBlock Text="{Binding}"/>
-                            <TextBlock TextAlignment="Right" Grid.Column="1" Text="{Binding Path=Price, StringFormat=c}"/>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Row="0" TextAlignment="Left" Text="{Binding}"/>
+                            <TextBlock Grid.Column="1" TextAlignment="Right" Text="{Binding Path=Price, StringFormat=c}"/>
+                            <ListView Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Path= SpecialInstructions}"/>
                         </Grid>
                     </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                </ListBox.ItemTemplate>
+            </ListBox>
             <TextBox Text="{Binding Path=Subtotal, StringFormat='Subtotal: ${0}'}"/>
         </StackPanel>
     </Grid>

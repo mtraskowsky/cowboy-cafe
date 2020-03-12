@@ -122,7 +122,7 @@ namespace PointOfSale
                 screen.DataContext = item;
                 data.Add(item);
                 //orderControl.SwapScreen(screen);
-                AddItemandOpenCustomizationScreen(item, screen);
+                AddItemandOpenCustomizationScreen(item, screen);        
             }
         }
 
