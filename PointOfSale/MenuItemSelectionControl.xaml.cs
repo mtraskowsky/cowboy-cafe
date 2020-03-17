@@ -74,6 +74,7 @@ namespace PointOfSale
                 // add the item to the customization screen and launch it
                 screen.DataContext = item;
                 orderControl.SwapScreen(screen);
+                //screen.FindAncestor();
             }
         }
 
@@ -110,13 +111,10 @@ namespace PointOfSale
         public void OnAddRustlersRibsButtonClicked(object sender, RoutedEventArgs e)
         {
             var orderControl = this.FindAncestor<OrderControl>();
+            //orderControl.DataContext;
 
             if (DataContext is Order data) // checks if you can cast it and if assigns it to data
             {
-                //data.Add(new RustlersRibs());
-                //orderControl.SwapScreen(new CustomizeRustlersRibs());
-
-
                 var item = new RustlersRibs();
                 var screen = new CustomizeRustlersRibs();
                 screen.DataContext = item;
@@ -156,6 +154,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         public void OnAddTrailBurgerButtonClicked(object sender, RoutedEventArgs e)
         {
+
             if (DataContext is Order data) // checks if you can cast it and if assigns it to data
             {
                 //data.Add(new TrailBurger());
@@ -279,7 +278,15 @@ namespace PointOfSale
         {
             if (DataContext is Order data) // checks if you can cast it and if assigns it to data
             {
-                data.Add(new BakedBeans());
+                //data.Add(new BakedBeans());
+
+                var item = new BakedBeans();
+                var screen = new CustomizeBakedBeans();
+                screen.DataContext = item;
+                data.Add(item);
+                //orderControl.SwapScreen(screen);
+                AddItemandOpenCustomizationScreen(item, screen);
+
             }
         }
 

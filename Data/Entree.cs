@@ -38,7 +38,7 @@ namespace CowboyCafe.Data
 
 
         /// <summary>
-        /// 
+        /// a method to handle the property changed notifications
         /// </summary>
         /// <param name="propertyName"></param>
         protected void NotifyPropertyChanged(string propertyName)
