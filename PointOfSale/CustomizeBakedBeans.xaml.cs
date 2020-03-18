@@ -27,7 +27,11 @@ namespace PointOfSale
             ClickMe.Click += EventChanged;
 
         }
-
+        /// <summary>
+        /// a method which will find the ancestor when an event has been changed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EventChanged(object sender, RoutedEventArgs e)
         {
             var ancestor = this.FindAncestor<OrderControl>();
@@ -35,6 +39,8 @@ namespace PointOfSale
             {
                 ancestor.propChanged();
             }
+            var screen = new MenuItemSelectionControl();
+            ancestor.SwapScreen(screen);
         }
     }
 }
