@@ -10,6 +10,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CowboyCafe.Data;
+using CowboyCafe.Extensions;
 
 namespace PointOfSale
 {
@@ -21,6 +23,18 @@ namespace PointOfSale
         public CustomizeBakedBeans()
         {
             InitializeComponent();
+
+            ClickMe.Click += EventChanged;
+
+        }
+
+        private void EventChanged(object sender, RoutedEventArgs e)
+        {
+            var ancestor = this.FindAncestor<OrderControl>();
+            if (ancestor is OrderControl)
+            {
+                ancestor.propChanged();
+            }
         }
     }
 }

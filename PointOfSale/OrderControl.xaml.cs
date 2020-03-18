@@ -76,5 +76,15 @@ namespace PointOfSale
         {
             this.DataContext = new Order();
         }
+
+        public void propChanged()
+        {
+            if (DataContext is Order data)
+            {
+                //notify change
+                data.notifyPropChanged();
+                // then go to Order class
+            }
+        }
     }
 }

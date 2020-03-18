@@ -24,6 +24,7 @@ namespace PointOfSale
         public CustomizeAngryChicken()
         {
             InitializeComponent();
+
         }
     }
 }

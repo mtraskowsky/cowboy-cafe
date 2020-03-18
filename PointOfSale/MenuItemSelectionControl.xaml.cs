@@ -74,7 +74,7 @@ namespace PointOfSale
                 // add the item to the customization screen and launch it
                 screen.DataContext = item;
                 orderControl.SwapScreen(screen);
-                //screen.FindAncestor();
+                
             }
         }
 

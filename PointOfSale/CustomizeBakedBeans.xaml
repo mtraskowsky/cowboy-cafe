@@ -17,8 +17,9 @@
     </UserControl.Resources>
         <StackPanel>
             <TextBlock FontSize="30" Text="Customize the Baked Beans!"></TextBlock>
-            <ListBox Name="chooseSize" SelectedIndex="0"
-                     ItemsSource="{Binding Source={StaticResource dataFromEnum}}"/>
-            <Button Content="Click Me!" HorizontalAlignment="{Binding ElementName=chooseSize, Path=SelectedItem}"/>
-        </StackPanel>
+        <ListBox Name="chooseSize" SelectedIndex="0" 
+                     ItemsSource="{Binding Source={StaticResource dataFromEnum}}"
+                    SelectedItem="{Binding Path=Size}"/>
+        <Button Name="ClickMe" Content="Click Me!"/>
+    </StackPanel>
 </UserControl>

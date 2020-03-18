@@ -34,12 +34,16 @@ namespace CowboyCafe.Data
         {
             get
             {
-                return subtotal;
+                double total = 0;
+                
+                foreach(IOrderItem item in items)
+                {
+                    total += item.Price;
+                }
+
+                return total;
             }
-            set
-            {
-                subtotal = value;
-            }
+            private set { subtotal = value; }
         }
 
         /// <summary>
@@ -67,7 +71,6 @@ namespace CowboyCafe.Data
             {
                 notifier.PropertyChanged += OnItemPropertyChanged;
             }
-            subtotal += item.Price;
             items.Add(item);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
@@ -84,7 +87,6 @@ namespace CowboyCafe.Data
             {
                 notifier.PropertyChanged -= OnItemPropertyChanged;
             }
-            subtotal -= item.Price;
             items.Remove(item);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
@@ -105,7 +107,15 @@ namespace CowboyCafe.Data
             {
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
             }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
         }
-        
+
+        public void notifyPropChanged()
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
+        }
+
+
     }
 }

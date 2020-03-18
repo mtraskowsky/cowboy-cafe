@@ -21,6 +21,7 @@
             <StackPanel Orientation="Horizontal">
                 <CheckBox IsChecked="{Binding Path=TortillaStrips}">Tortilla Strips</CheckBox>
             </StackPanel>
+            <Button Click="EventChanged" Content="Done!"/>
         </StackPanel>
     </Grid>
 </UserControl>
