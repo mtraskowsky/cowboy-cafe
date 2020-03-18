@@ -239,7 +239,11 @@ namespace PointOfSale
         {
             if (DataContext is Order data) // checks if you can cast it and if assigns it to data
             {
-                data.Add(new ChiliCheeseFries());
+                var item = new ChiliCheeseFries();
+                var screen = new CustomizeChiliCheeseFries();
+                screen.DataContext = item;
+                data.Add(item);
+                AddItemandOpenCustomizationScreen(item, screen);
             }
         }
 
@@ -252,7 +256,11 @@ namespace PointOfSale
         {
             if (DataContext is Order data) // checks if you can cast it and if assigns it to data
             {
-                data.Add(new CornDodgers());
+                var item = new CornDodgers();
+                var screen = new CustomizeCornDodgers();
+                screen.DataContext = item;
+                data.Add(item);
+                AddItemandOpenCustomizationScreen(item, screen);
             }
         }
 
@@ -265,7 +273,11 @@ namespace PointOfSale
         {
             if (DataContext is Order data) // checks if you can cast it and if assigns it to data
             {
-                data.Add(new PanDeCampo());
+                var item = new PanDeCampo();
+                var screen = new CustomizePanDeCampo();
+                screen.DataContext = item;
+                data.Add(item);
+                AddItemandOpenCustomizationScreen(item, screen);
             }
         }
 
@@ -278,13 +290,10 @@ namespace PointOfSale
         {
             if (DataContext is Order data) // checks if you can cast it and if assigns it to data
             {
-                //data.Add(new BakedBeans());
-
                 var item = new BakedBeans();
                 var screen = new CustomizeBakedBeans();
                 screen.DataContext = item;
                 data.Add(item);
-                //orderControl.SwapScreen(screen);
                 AddItemandOpenCustomizationScreen(item, screen);
 
             }
@@ -301,7 +310,11 @@ namespace PointOfSale
         {
             if (DataContext is Order data) // checks if you can cast it and if assigns it to data
             {
-                data.Add(new JerkedSoda());
+                var item = new JerkedSoda();
+                var screen = new CustomizeJerkedSoda();
+                screen.DataContext = item;
+                data.Add(item);
+                AddItemandOpenCustomizationScreen(item, screen);
             }
         }
 
@@ -314,7 +327,11 @@ namespace PointOfSale
         {
             if (DataContext is Order data) // checks if you can cast it and if assigns it to data
             {
-                data.Add(new TexasTea());
+                var item = new TexasTea();
+                var screen = new CustomizeTexasTea();
+                screen.DataContext = item;
+                data.Add(item);
+                AddItemandOpenCustomizationScreen(item, screen);
             }
         }
 
@@ -327,7 +344,11 @@ namespace PointOfSale
         {
             if (DataContext is Order data) // checks if you can cast it and if assigns it to data
             {
-                data.Add(new CowboyCoffee());
+                var item = new CowboyCoffee();
+                var screen = new CustomizeCowboyCoffee();
+                screen.DataContext = item;
+                data.Add(item);
+                AddItemandOpenCustomizationScreen(item, screen);
             }
         }
 
@@ -340,7 +361,11 @@ namespace PointOfSale
         {
             if (DataContext is Order data) // checks if you can cast it and if assigns it to data
             {
-                data.Add(new Water());
+                var item = new Water();
+                var screen = new CustomizeWater();
+                screen.DataContext = item;
+                data.Add(item);
+                AddItemandOpenCustomizationScreen(item, screen);
             }
         }
     }

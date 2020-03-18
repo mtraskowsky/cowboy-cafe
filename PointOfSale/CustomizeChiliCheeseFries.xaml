@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="PointOfSale.CustomizeBakedBeans"
+﻿<UserControl x:Class="PointOfSale.CustomizeChiliCheeseFries"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -15,11 +15,11 @@
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
     </UserControl.Resources>
-        <StackPanel>
-            <TextBlock FontSize="30" Text="Customize the Baked Beans!"></TextBlock>
-        <ListBox Name="chooseSize" SelectedIndex="0" 
-                     ItemsSource="{Binding Source={StaticResource dataFromEnum}}"
-                    SelectedItem="{Binding Path=Size}"/>
+    <StackPanel>
+        <TextBlock FontSize="30" Text="Customize the Chili!"/>
+        <ListBox Name="chooseSize" SelectedIndex="0"
+                 ItemsSource="{Binding Source={StaticResource dataFromEnum}}"
+                 SelectedItem="{Binding Path=Size}"/>
         <Button Name="ClickMe" Content="Done!"/>
     </StackPanel>
 </UserControl>
