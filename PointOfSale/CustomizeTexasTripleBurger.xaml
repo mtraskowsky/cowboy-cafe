@@ -39,6 +39,7 @@
             <StackPanel Orientation="Horizontal">
                 <CheckBox IsChecked="{Binding Path=Egg}">Egg</CheckBox>
             </StackPanel>
+            <Button Click="EventChanged" Content="Done!"/>
         </StackPanel>
     </Grid>
 </UserControl>

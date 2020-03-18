@@ -9,6 +9,7 @@
     <Grid>
         <StackPanel>
             <TextBlock FontSize="30" Text="Customize the Ribs!"></TextBlock>
+            <Button Click="EventChanged" Content="Done!"/>
         </StackPanel>
     </Grid>
 </UserControl>

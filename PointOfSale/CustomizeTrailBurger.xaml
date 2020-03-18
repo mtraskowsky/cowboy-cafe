@@ -24,6 +24,7 @@
             <StackPanel Orientation="Horizontal">
                 <CheckBox IsChecked="{Binding Path=Pickle}">Pickle</CheckBox>
             </StackPanel>
+            <Button Click="EventChanged" Content="Done!"/>
         </StackPanel>
     </Grid>
 </UserControl>

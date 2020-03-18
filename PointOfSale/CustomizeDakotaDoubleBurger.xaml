@@ -33,6 +33,7 @@
             <StackPanel Orientation="Horizontal">
                 <CheckBox IsChecked="{Binding Path=Lettuce}">Lettuce</CheckBox>
             </StackPanel>
+            <Button Click="EventChanged" Content="Done!"/>
         </StackPanel>
     </Grid>
 </UserControl>
