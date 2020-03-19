@@ -7,14 +7,21 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
     /// a class representing the jerked soda
     /// </summary>
-    public class JerkedSoda : Drink
+    public class JerkedSoda : Drink, IOrderItem, INotifyPropertyChanged
     {
+
+        /// <summary>
+        /// The property changed event handler
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// the price of the jerked soda, depending on size
         /// </summary>
@@ -64,7 +71,9 @@ namespace CowboyCafe.Data
         public SodaFlavor Flavor
         {
             get { return flavor; }
-            set { flavor = value; }
+            set { flavor = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SodaFlavor"));
+            }
         }
 
         /// <summary>
@@ -92,19 +101,14 @@ namespace CowboyCafe.Data
             {
                 case SodaFlavor.CreamSoda:
                     return Size + " " + "Cream Soda" + " " + "Jerked Soda";
-                    break;
                 case SodaFlavor.OrangeSoda:
                     return Size + " " + "Orange Soda" + " " + "Jerked Soda";
-                    break;
                 case SodaFlavor.BirchBeer:
                     return Size + " " + "Birch Beer" + " " + "Jerked Soda";
-                    break;
                 case SodaFlavor.RootBeer:
                     return Size + " " + "Root Beer" + " " + "Jerked Soda";
-                    break;
                 case SodaFlavor.Sarsparilla:
                     return Size + " " + "Sarsparilla" + " " + "Jerked Soda";
-                    break;
                 default:
                     return Size + " " + "Jerked Soda";
 

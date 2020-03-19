@@ -3,10 +3,35 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:PointOfSale"
+             xmlns:local="clr-namespace:CowboyCafe.Data;assembly=CowboyCafe.Data"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+    <UserControl.Resources>
+        <ObjectDataProvider x:Key="dataFromEnum" MethodName="GetValues" 
+                            ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="local:Size"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider x:Key="data" MethodName="GetValues"
+                            ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="local:SodaFlavor"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </UserControl.Resources>
+    <StackPanel>
+        <TextBlock FontSize="30" Text="Customize the Soda!"></TextBlock>
+        <StackPanel Orientation="Horizontal">
+            <CheckBox IsChecked="{Binding Path=Ice}">Ice</CheckBox>
+        </StackPanel>
+        <ListBox Name="chooseSize" SelectedIndex="0" 
+                     ItemsSource="{Binding Source={StaticResource dataFromEnum}}"
+                    SelectedItem="{Binding Path=Size}"/>
+        <ListBox Name="chooseFlavor" SelectedIndex="0" 
+                     ItemsSource="{Binding Source={StaticResource data}}"
+                    SelectedItem="{Binding Path=Flavor}"/>
+        <Button Name="ClickMe" Click="EventChanged" Content="Done!"/>
+    </StackPanel>
 </UserControl>
