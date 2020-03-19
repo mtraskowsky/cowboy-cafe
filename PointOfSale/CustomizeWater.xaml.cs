@@ -37,7 +37,10 @@ namespace PointOfSale
             if (ancestor is OrderControl)
             {
                 ancestor.propChanged();
+                var screen = new MenuItemSelectionControl();
+                ancestor.SwapScreen(screen);
             }
+            
         }
     }
 }
