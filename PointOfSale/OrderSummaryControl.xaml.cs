@@ -11,6 +11,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CowboyCafe.Data;
+using CowboyCafe.Extensions;
+
 
 namespace PointOfSale
 {
@@ -22,6 +24,119 @@ namespace PointOfSale
         public OrderSummaryControl()
         {
             InitializeComponent();
+            //var order = DataContext as Item;
+
+
+        }
+
+        /// <summary>
+        /// Allows the user to go back and change previously added items on the order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="s"></param>
+        void ChangeOrder(object sender, SelectionChangedEventArgs s)
+        {
+            
+            var ancestor = this.FindAncestor<OrderControl>();
+            if (ancestor is OrderControl)
+            {
+                ancestor.propChanged();
+            }
+
+            // curItem is the item that is selected by the user
+            string curItem = OrderSumControlListView.SelectedItem.ToString();
+
+            //Entrees
+            if (curItem == "Angry Chicken")
+            {
+                var screen = new CustomizeAngryChicken();
+                ancestor.SwapScreen(screen);
+                screen.DataContext = OrderSumControlListView.SelectedItem;
+
+            }
+
+            if (curItem == "Cowpoke Chili")
+            {
+                var screen = new CustomizeCowpokeChili();
+                ancestor.SwapScreen(screen);
+                screen.DataContext = OrderSumControlListView.SelectedItem;
+
+            }
+
+            if (curItem == "Dakota Double Burger")
+            {
+                var screen = new CustomizeDakotaDoubleBurger();
+                ancestor.SwapScreen(screen);
+                screen.DataContext = OrderSumControlListView.SelectedItem;
+
+            }
+
+            if (curItem == "Pecos Pulled Pork")
+            {
+                var screen = new CustomizePecosPulledPork();
+                ancestor.SwapScreen(screen);
+                screen.DataContext = OrderSumControlListView.SelectedItem;
+
+            }
+
+            if (curItem == "Rustlers Ribs")
+            {
+                var screen = new CustomizeRustlersRibs();
+                ancestor.SwapScreen(screen);
+                screen.DataContext = OrderSumControlListView.SelectedItem;
+
+            }
+
+            if (curItem == "Texas Triple Burger")
+            {
+                var screen = new CustomizeTexasTripleBurger();
+                ancestor.SwapScreen(screen);
+                screen.DataContext = OrderSumControlListView.SelectedItem;
+
+            }
+
+            if (curItem == "Trail Burger")
+            {
+                var screen = new CustomizeTrailBurger();
+                ancestor.SwapScreen(screen);
+                screen.DataContext = OrderSumControlListView.SelectedItem;
+
+            }
+
+            // Sides
+            if (curItem.Contains("Baked Beans"))
+            {
+                var screen = new CustomizeBakedBeans();
+                ancestor.SwapScreen(screen);
+                screen.DataContext = OrderSumControlListView.SelectedItem;
+            }
+
+            if (curItem.Contains("Chili Cheese Fries"))
+            {
+                var screen = new CustomizeChiliCheeseFries();
+                ancestor.SwapScreen(screen);
+                screen.DataContext = OrderSumControlListView.SelectedItem;
+            }
+
+            if (curItem.Contains(""))
+            {
+                var screen = new ();
+                ancestor.SwapScreen(screen);
+                screen.DataContext = OrderSumControlListView.SelectedItem;
+            }
+
+            if (curItem.Contains(""))
+            {
+                var screen = new ();
+                ancestor.SwapScreen(screen);
+                screen.DataContext = OrderSumControlListView.SelectedItem;
+            }
+
+            if (curItem.Contains("Cowboy Coffee")) {
+                var screen = new CustomizeCowboyCoffee();
+                ancestor.SwapScreen(screen);
+                screen.DataContext = OrderSumControlListView.SelectedItem;
+            }
 
         }
     }
