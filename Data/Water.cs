@@ -64,7 +64,24 @@ namespace CowboyCafe.Data
         public bool Lemon
         {
             get { return lemon; }
-            set { lemon = value; }
+            set { 
+                lemon = value;
+                NotifyPropertyChanged("Lemon");
+            }
+        }
+
+        /// <summary>
+        /// whether the water has ice
+        /// </summary>
+        private bool ice = true;
+        public override bool Ice
+        {
+            get { return ice; }
+            set
+            {
+                ice = value;
+                NotifyPropertyChanged("Ice");
+            }
         }
 
         /// <summary>

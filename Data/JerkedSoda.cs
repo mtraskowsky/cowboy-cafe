@@ -72,6 +72,20 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
+        /// whether the soda has ice
+        /// </summary>
+        private bool ice = true;
+        public override bool Ice
+        {
+            get { return ice; }
+            set
+            {
+                ice = value;
+                NotifyPropertyChanged("Ice");
+            }
+        }
+
+        /// <summary>
         /// special instructions for the preparation of the soda
         /// </summary>
         public override List<string> SpecialInstructions

@@ -70,7 +70,10 @@ namespace CowboyCafe.Data
         public bool Sweet
         {
             get { return sweet; }
-            set { sweet = value; }
+            set { 
+                sweet = value;
+                NotifyPropertyChanged("Sweet");
+            }
         }
 
         /// <summary>
@@ -80,7 +83,10 @@ namespace CowboyCafe.Data
         public bool Lemon
         {
             get { return lemon; }
-            set { lemon = value; }
+            set { 
+                lemon = value;
+                NotifyPropertyChanged("Lemon");
+            }
         }
 
         /// <summary>
