@@ -77,6 +77,9 @@ namespace PointOfSale
             this.DataContext = new Order();
         }
 
+        /// <summary>
+        /// Keeps track of property changed for the contents of the order
+        /// </summary>
         public void propChanged()
         {
             if (DataContext is Order data)
