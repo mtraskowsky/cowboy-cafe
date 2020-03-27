@@ -42,6 +42,7 @@ namespace PointOfSale
 
             // curItem is the item that is selected by the user
             string curItem = OrderSumControlListView.SelectedItem.ToString();
+
             if (curItem != null)
             {
                 //Entrees
@@ -162,19 +163,13 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Method that removes an item from the order when a user clicks the "X" button on that item
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void OnRemoveButtonClicked(object sender, RoutedEventArgs e)
         {
-            /*
-            var orderItem = OrderSumControlListView.SelectedItem;
-            //this.DataContext = orderItem;
-
-            if (DataContext is Order data)// checks if you can cast it and if assigns it to data
-            {
-                //data.Remove(orderItem);
-                OrderSumControlListView.Items.Remove(orderItem);
-            }
-            */
-
             if (sender is Button)
             {
                 Button b = (Button)sender;

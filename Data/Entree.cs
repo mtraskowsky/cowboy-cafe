@@ -16,7 +16,7 @@ namespace CowboyCafe.Data
     /// <summary>
     ///  a base class representing an entree
     /// </summary>
-    public abstract class Entree : IOrderItem
+    public abstract class Entree : IOrderItem, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -44,8 +44,7 @@ namespace CowboyCafe.Data
         protected void NotifyPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
-            
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));  
         }
 
     }

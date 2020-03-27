@@ -63,6 +63,7 @@ namespace CowboyCafe.Data
             {
                 bread = value;
                 NotifyPropertyChanged("Bread");
+                //NotifyPropertyChanged("SpecialInstructions"); I do this in the NotifyPropertyChanged method 
             }
         }
         /// <summary>
