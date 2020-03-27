@@ -6,18 +6,39 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
     /// a base class representing a drink
     /// </summary>
-    public abstract class Drink : IOrderItem
+    public abstract class Drink : IOrderItem, INotifyPropertyChanged
     {
+
         /// <summary>
-        /// the size of the drink
+        /// The property changed event handler
         /// </summary>
-        public virtual Size Size { get; set; } = Size.Small;
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private Size size;
+        /// <summary>
+        /// Gets the size of the entree
+        /// </summary>
+        public Size Size
+        {
+            get
+            {
+                return size;
+            }
+            set
+            {
+                size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+            }
+        }
 
         /// <summary>
         /// the price of the drink
@@ -38,5 +59,16 @@ namespace CowboyCafe.Data
         /// special instructions for drinks
         /// </summary>
         public abstract List<string> SpecialInstructions { get; }
+
+        /// <summary>
+        /// a method to handle the property changed notifications
+        /// </summary>
+        /// <param name="propertyName"></param>
+        protected void NotifyPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+
+        }
     }
 }

@@ -14,13 +14,8 @@ namespace CowboyCafe.Data
     /// <summary>
     /// a class representing the jerked soda
     /// </summary>
-    public class JerkedSoda : Drink, IOrderItem, INotifyPropertyChanged
+    public class JerkedSoda : Drink, IOrderItem
     {
-
-        /// <summary>
-        /// The property changed event handler
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// the price of the jerked soda, depending on size
@@ -67,12 +62,12 @@ namespace CowboyCafe.Data
         /// <summary>
         /// the flavor of the soda
         /// </summary>
-        private SodaFlavor flavor;
+        private SodaFlavor flavor = SodaFlavor.CreamSoda;
         public SodaFlavor Flavor
         {
             get { return flavor; }
             set { flavor = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SodaFlavor"));
+                NotifyPropertyChanged("Flavor");
             }
         }
 
