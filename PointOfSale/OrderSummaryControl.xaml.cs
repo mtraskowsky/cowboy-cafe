@@ -161,5 +161,28 @@ namespace PointOfSale
                 }
             }
         }
+
+        void OnRemoveButtonClicked(object sender, RoutedEventArgs e)
+        {
+            /*
+            var orderItem = OrderSumControlListView.SelectedItem;
+            //this.DataContext = orderItem;
+
+            if (DataContext is Order data)// checks if you can cast it and if assigns it to data
+            {
+                //data.Remove(orderItem);
+                OrderSumControlListView.Items.Remove(orderItem);
+            }
+            */
+
+            if (sender is Button)
+            {
+                Button b = (Button)sender;
+                IOrderItem itemToBeRemoved = (IOrderItem)b.DataContext;
+                Order ord = (Order)DataContext;
+                ord.Remove(itemToBeRemoved);
+            }
+        }
+            
     }
 }

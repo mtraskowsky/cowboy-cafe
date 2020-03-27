@@ -22,16 +22,16 @@
                                 <RowDefinition/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
-                            <Label Grid.Column="2"
-                                   BorderBrush="Black" 
-                                   BorderThickness="1" 
-                                   Background="Red"
-                                   Height="Auto"
-                                   Width="Auto"
-                                   Padding="5"
-                                   Margin="5"
-                                   
-                                   >X</Label>
+                            <Button Name="RemoveButton"
+                                    Click="OnRemoveButtonClicked"
+                                    Grid.Column="2"
+                                    BorderBrush="Black" 
+                                    BorderThickness="1" 
+                                    Background="Red"
+                                    Height="Auto"
+                                    Width="Auto"
+                                    Padding="5"
+                                    Margin="5">X</Button>
                             <TextBlock Grid.Row="0" TextAlignment="Left" Text="{Binding}"/>
                             <TextBlock Grid.Column="1" TextAlignment="Right" Text="{Binding Path=Price, StringFormat=c}"/>
                             <ListView Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Path= SpecialInstructions}"/>

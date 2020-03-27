@@ -20,6 +20,6 @@
         <ListBox Name="chooseSize" SelectedIndex="0" 
                      ItemsSource="{Binding Source={StaticResource dataFromEnum}}"
                     SelectedItem="{Binding Path=Size}"/>
-        <Button Name="ClickMe" Content="Click Me!"/>
+        <Button Name="ClickMe" Content="Done!"/>
     </StackPanel>
 </UserControl>
