@@ -22,16 +22,20 @@
         </ObjectDataProvider>
     </UserControl.Resources>
     <StackPanel>
-        <TextBlock FontSize="30" Text="Customize the Soda!"></TextBlock>
+        <TextBlock FontSize="40" Text="Customize the Soda!"></TextBlock>
         <StackPanel Orientation="Horizontal">
-            <CheckBox IsChecked="{Binding Path=Ice}">Ice</CheckBox>
+            <CheckBox IsChecked="{Binding Path=Ice}">Ice
+                <CheckBox.LayoutTransform>
+                    <ScaleTransform ScaleX="2" ScaleY="2"/>
+                </CheckBox.LayoutTransform>
+            </CheckBox>
         </StackPanel>
-        <ListBox Name="chooseSize" SelectedIndex="0" 
+        <ListBox FontSize="20" Name="chooseSize" SelectedIndex="0" 
                      ItemsSource="{Binding Source={StaticResource dataFromEnum}}"
                     SelectedItem="{Binding Path=Size}"/>
-        <ListBox Name="chooseFlavor" SelectedIndex="0" 
+        <ListBox FontSize="20" Name="chooseFlavor" SelectedIndex="0" 
                      ItemsSource="{Binding Source={StaticResource data}}"
                     SelectedItem="{Binding Path=Flavor}"/>
-        <Button Name="ClickMe" Click="EventChanged" Content="Done!"/>
+        <Button FontSize="20" Name="ClickMe" Click="EventChanged" Content="Done!"/>
     </StackPanel>
 </UserControl>

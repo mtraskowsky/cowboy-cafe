@@ -16,10 +16,10 @@
         </ObjectDataProvider>
     </UserControl.Resources>
         <StackPanel>
-            <TextBlock FontSize="30" Text="Customize the Baked Beans!"></TextBlock>
-        <ListBox Name="chooseSize" SelectedIndex="0" 
+            <TextBlock FontSize="40" Text="Customize the Baked Beans!"></TextBlock>
+        <ListBox FontSize="20" Name="chooseSize" SelectedIndex="0" 
                      ItemsSource="{Binding Source={StaticResource dataFromEnum}}"
                     SelectedItem="{Binding Path=Size}"/>
-        <Button Name="ClickMe" Content="Done!"/>
+        <Button FontSize="20" Name="ClickMe" Content="Done!"/>
     </StackPanel>
 </UserControl>

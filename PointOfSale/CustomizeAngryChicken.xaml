@@ -8,14 +8,22 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <StackPanel>
-            <TextBlock FontSize="30" Text="Customize the Chicken!"></TextBlock>
+            <TextBlock FontSize="40" Text="Customize the Chicken!"></TextBlock>
             <StackPanel Orientation="Horizontal">
-                <CheckBox IsChecked="{Binding Path=Bread}">Bread</CheckBox>
+                <CheckBox IsChecked="{Binding Path=Bread}">Bread
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <CheckBox IsChecked="{Binding Path=Pickle}">Pickle</CheckBox>
+                <CheckBox IsChecked="{Binding Path=Pickle}">Pickle
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
             </StackPanel>
-            <Button Click="EventChanged" Content="Done!"/>
+            <Button FontSize="20" Click="EventChanged" Content="Done!"/>
         </StackPanel>
     </Grid>
 </UserControl>

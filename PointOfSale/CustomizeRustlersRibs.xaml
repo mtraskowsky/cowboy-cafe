@@ -8,8 +8,8 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <StackPanel>
-            <TextBlock FontSize="30" Text="Customize the Ribs!"></TextBlock>
-            <Button Click="EventChanged" Content="Done!"/>
+            <TextBlock FontSize="40" Text="Customize the Ribs!"></TextBlock>
+            <Button FontSize="20" Click="EventChanged" Content="Done!"/>
         </StackPanel>
     </Grid>
 </UserControl>

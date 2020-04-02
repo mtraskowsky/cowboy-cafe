@@ -16,20 +16,32 @@
         </ObjectDataProvider>
     </UserControl.Resources>
     <StackPanel>
-        <TextBlock FontSize="30" Text="Customize the Texas Tea!"></TextBlock>
+        <TextBlock FontSize="40" Text="Customize the Texas Tea!"></TextBlock>
         <StackPanel Orientation="Horizontal">
-            <CheckBox IsChecked="{Binding Path=Lemon}">Lemon</CheckBox>
+            <CheckBox IsChecked="{Binding Path=Lemon}">Lemon
+                <CheckBox.LayoutTransform>
+                    <ScaleTransform ScaleX="2" ScaleY="2"/>
+                </CheckBox.LayoutTransform>
+            </CheckBox>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <CheckBox IsChecked="{Binding Path=Sweet}">Sweet</CheckBox>
+            <CheckBox IsChecked="{Binding Path=Sweet}">Sweet
+                <CheckBox.LayoutTransform>
+                    <ScaleTransform ScaleX="2" ScaleY="2"/>
+                </CheckBox.LayoutTransform>
+            </CheckBox>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <CheckBox IsChecked="{Binding Path=Ice}">Ice</CheckBox>
+            <CheckBox IsChecked="{Binding Path=Ice}">Ice
+                <CheckBox.LayoutTransform>
+                    <ScaleTransform ScaleX="2" ScaleY="2"/>
+                </CheckBox.LayoutTransform>
+            </CheckBox>
         </StackPanel>
-        <ListBox Name="chooseSize" SelectedIndex="0" 
+        <ListBox FontSize="20" Name="chooseSize" SelectedIndex="0" 
                      ItemsSource="{Binding Source={StaticResource dataFromEnum}}"
                     SelectedItem="{Binding Path=Size}"/>
-        <Button Name="ClickMe" Click="EventChanged" Content="Done!"/>
+        <Button FontSize="20" Name="ClickMe" Click="EventChanged" Content="Done!"/>
     </StackPanel>
 
 </UserControl>
