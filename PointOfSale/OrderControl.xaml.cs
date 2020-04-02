@@ -64,7 +64,12 @@ namespace PointOfSale
         /// <param name="e"></param>
         void OnCompleteOrderButtonClicked(object sender, RoutedEventArgs e)
         {
-            this.DataContext = new Order();
+            if (DataContext is Order data)
+            {
+                //this.DataContext = new Order();
+                var transaction = new TransactionControl();
+                SwapScreen(transaction);
+            }
         }
 
         /// <summary>
@@ -75,6 +80,8 @@ namespace PointOfSale
         void OnCancelOrderButtonClicked(object sender, RoutedEventArgs e)
         {
             this.DataContext = new Order();
+            var screen = new MenuItemSelectionControl();
+            SwapScreen(screen);
         }
 
         /// <summary>

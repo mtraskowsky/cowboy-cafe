@@ -46,6 +46,24 @@ namespace CowboyCafe.Data
             private set { subtotal = value; }
         }
 
+        private double totalWithTax;
+        public double TotalWithTax
+        {
+            get
+            {
+                double sub = 0;
+
+                foreach (IOrderItem item in items)
+                {
+                    sub += item.Price;
+                }
+                double tax = sub * .16;
+
+                return sub + tax;
+            }
+            set { totalWithTax = value; }
+        }
+
         /// <summary>
         /// tracks the order number
         /// </summary>
@@ -75,6 +93,7 @@ namespace CowboyCafe.Data
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TotalWithTax"));
         }
 
         /// <summary>
@@ -90,6 +109,9 @@ namespace CowboyCafe.Data
             items.Remove(item);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TotalWithTax"));
+
         }
 
         /// <summary>
@@ -106,6 +128,8 @@ namespace CowboyCafe.Data
             if(e.PropertyName == "Price")
             {
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TotalWithTax"));
+
             }
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
         }
@@ -114,8 +138,7 @@ namespace CowboyCafe.Data
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TotalWithTax"));
         }
-
-
     }
 }
