@@ -46,6 +46,13 @@ namespace PointOfSale
             Container.Child = element;
         }
 
+        /*
+        public void SwapOrderSum(UIElement element)
+        {
+            OrderSumContainer.Child = element;
+        }
+        */
+
         /// <summary>
         /// when the user is done customizing their order, this will take them back to the menu item selection screen
         /// </summary>

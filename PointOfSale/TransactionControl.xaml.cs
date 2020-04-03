@@ -30,6 +30,44 @@ namespace PointOfSale
             {
                 this.DataContext = orderInfo;
             }
+
+            CancelTransactionButton.Click += OnCancelTransactionClicked;
+        }
+/*
+        /// <summary>
+        /// A method which will swap the screen displayed to the user
+        /// </summary>
+        /// <param name="element"></param>
+        public void SwapScreen(UIElement element)
+        {
+            TransactionDetails.Child = element;
+        }
+        */
+
+        void OnCancelTransactionClicked(object sender, RoutedEventArgs e)
+        {
+            /*
+            Order ord = (Order)DataContext;
+
+            if (ord != null)
+            {
+                foreach (IOrderItem item in ord.items)
+                {
+                    ord.Remove(item);
+                }
+            }
+            */
+            
+            var orderInfo = this.FindAncestor<OrderControl>();
+
+            this.DataContext = new Order();
+            //orderc.DataContext = new Order();
+            var sum = new OrderSummaryControl();
+            //orderInfo.SwapOrderSum(sum);
+            var screen = new MenuItemSelectionControl();
+            orderInfo.SwapScreen(screen);
+            OrderControl child = new OrderControl();
+           
         }
     }
 }
