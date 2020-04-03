@@ -40,125 +40,129 @@ namespace PointOfSale
                 ancestor.propChanged();
             }
 
-            // curItem is the item that is selected by the user
-            string curItem = OrderSumControlListView.SelectedItem.ToString();
-
-            if (curItem != null)
+            if (OrderSumControlListView.SelectedItem != null)
             {
-                //Entrees
-                if (curItem == "Angry Chicken")
+                // curItem is the item that is selected by the user
+                string curItem = OrderSumControlListView.SelectedItem.ToString();
+
+
+                if (curItem != null)
                 {
-                    var screen = new CustomizeAngryChicken();
-                    ancestor.SwapScreen(screen);
-                    screen.DataContext = OrderSumControlListView.SelectedItem;
+                    //Entrees
+                    if (curItem == "Angry Chicken")
+                    {
+                        var screen = new CustomizeAngryChicken();
+                        ancestor.SwapScreen(screen);
+                        screen.DataContext = OrderSumControlListView.SelectedItem;
 
-                }
+                    }
 
-                if (curItem == "Cowpoke Chili")
-                {
-                    var screen = new CustomizeCowpokeChili();
-                    ancestor.SwapScreen(screen);
-                    screen.DataContext = OrderSumControlListView.SelectedItem;
+                    if (curItem == "Cowpoke Chili")
+                    {
+                        var screen = new CustomizeCowpokeChili();
+                        ancestor.SwapScreen(screen);
+                        screen.DataContext = OrderSumControlListView.SelectedItem;
 
-                }
+                    }
 
-                if (curItem == "Dakota Double Burger")
-                {
-                    var screen = new CustomizeDakotaDoubleBurger();
-                    ancestor.SwapScreen(screen);
-                    screen.DataContext = OrderSumControlListView.SelectedItem;
+                    if (curItem == "Dakota Double Burger")
+                    {
+                        var screen = new CustomizeDakotaDoubleBurger();
+                        ancestor.SwapScreen(screen);
+                        screen.DataContext = OrderSumControlListView.SelectedItem;
 
-                }
+                    }
 
-                if (curItem == "Pecos Pulled Pork")
-                {
-                    var screen = new CustomizePecosPulledPork();
-                    ancestor.SwapScreen(screen);
-                    screen.DataContext = OrderSumControlListView.SelectedItem;
+                    if (curItem == "Pecos Pulled Pork")
+                    {
+                        var screen = new CustomizePecosPulledPork();
+                        ancestor.SwapScreen(screen);
+                        screen.DataContext = OrderSumControlListView.SelectedItem;
 
-                }
+                    }
 
-                if (curItem == "Rustlers Ribs")
-                {
-                    var screen = new CustomizeRustlersRibs();
-                    ancestor.SwapScreen(screen);
-                    screen.DataContext = OrderSumControlListView.SelectedItem;
+                    if (curItem == "Rustlers Ribs")
+                    {
+                        var screen = new CustomizeRustlersRibs();
+                        ancestor.SwapScreen(screen);
+                        screen.DataContext = OrderSumControlListView.SelectedItem;
 
-                }
+                    }
 
-                if (curItem == "Texas Triple Burger")
-                {
-                    var screen = new CustomizeTexasTripleBurger();
-                    ancestor.SwapScreen(screen);
-                    screen.DataContext = OrderSumControlListView.SelectedItem;
+                    if (curItem == "Texas Triple Burger")
+                    {
+                        var screen = new CustomizeTexasTripleBurger();
+                        ancestor.SwapScreen(screen);
+                        screen.DataContext = OrderSumControlListView.SelectedItem;
 
-                }
+                    }
 
-                if (curItem == "Trail Burger")
-                {
-                    var screen = new CustomizeTrailBurger();
-                    ancestor.SwapScreen(screen);
-                    screen.DataContext = OrderSumControlListView.SelectedItem;
+                    if (curItem == "Trail Burger")
+                    {
+                        var screen = new CustomizeTrailBurger();
+                        ancestor.SwapScreen(screen);
+                        screen.DataContext = OrderSumControlListView.SelectedItem;
 
-                }
+                    }
 
-                // Sides
-                if (curItem.Contains("Baked Beans"))
-                {
-                    var screen = new CustomizeBakedBeans();
-                    ancestor.SwapScreen(screen);
-                    screen.DataContext = OrderSumControlListView.SelectedItem;
-                }
+                    // Sides
+                    if (curItem.Contains("Baked Beans"))
+                    {
+                        var screen = new CustomizeBakedBeans();
+                        ancestor.SwapScreen(screen);
+                        screen.DataContext = OrderSumControlListView.SelectedItem;
+                    }
 
-                if (curItem.Contains("Chili Cheese Fries"))
-                {
-                    var screen = new CustomizeChiliCheeseFries();
-                    ancestor.SwapScreen(screen);
-                    screen.DataContext = OrderSumControlListView.SelectedItem;
-                }
+                    if (curItem.Contains("Chili Cheese Fries"))
+                    {
+                        var screen = new CustomizeChiliCheeseFries();
+                        ancestor.SwapScreen(screen);
+                        screen.DataContext = OrderSumControlListView.SelectedItem;
+                    }
 
-                if (curItem.Contains("Corn Dodgers"))
-                {
-                    var screen = new CustomizeCornDodgers();
-                    ancestor.SwapScreen(screen);
-                    screen.DataContext = OrderSumControlListView.SelectedItem;
-                }
+                    if (curItem.Contains("Corn Dodgers"))
+                    {
+                        var screen = new CustomizeCornDodgers();
+                        ancestor.SwapScreen(screen);
+                        screen.DataContext = OrderSumControlListView.SelectedItem;
+                    }
 
-                if (curItem.Contains("Pan de Campo"))
-                {
-                    var screen = new CustomizePanDeCampo();
-                    ancestor.SwapScreen(screen);
-                    screen.DataContext = OrderSumControlListView.SelectedItem;
-                }
+                    if (curItem.Contains("Pan de Campo"))
+                    {
+                        var screen = new CustomizePanDeCampo();
+                        ancestor.SwapScreen(screen);
+                        screen.DataContext = OrderSumControlListView.SelectedItem;
+                    }
 
 
-                // Drinks
-                if (curItem.Contains("Cowboy Coffee"))
-                {
-                    var screen = new CustomizeCowboyCoffee();
-                    ancestor.SwapScreen(screen);
-                    screen.DataContext = OrderSumControlListView.SelectedItem;
-                }
+                    // Drinks
+                    if (curItem.Contains("Cowboy Coffee"))
+                    {
+                        var screen = new CustomizeCowboyCoffee();
+                        ancestor.SwapScreen(screen);
+                        screen.DataContext = OrderSumControlListView.SelectedItem;
+                    }
 
-                if (curItem.Contains("Jerked Soda"))
-                {
-                    var screen = new CustomizeJerkedSoda();
-                    ancestor.SwapScreen(screen);
-                    screen.DataContext = OrderSumControlListView.SelectedItem;
-                }
+                    if (curItem.Contains("Jerked Soda"))
+                    {
+                        var screen = new CustomizeJerkedSoda();
+                        ancestor.SwapScreen(screen);
+                        screen.DataContext = OrderSumControlListView.SelectedItem;
+                    }
 
-                if (curItem.Contains("Tea"))
-                {
-                    var screen = new CustomizeTexasTea();
-                    ancestor.SwapScreen(screen);
-                    screen.DataContext = OrderSumControlListView.SelectedItem;
-                }
+                    if (curItem.Contains("Tea"))
+                    {
+                        var screen = new CustomizeTexasTea();
+                        ancestor.SwapScreen(screen);
+                        screen.DataContext = OrderSumControlListView.SelectedItem;
+                    }
 
-                if (curItem.Contains("Water"))
-                {
-                    var screen = new CustomizeWater();
-                    ancestor.SwapScreen(screen);
-                    screen.DataContext = OrderSumControlListView.SelectedItem;
+                    if (curItem.Contains("Water"))
+                    {
+                        var screen = new CustomizeWater();
+                        ancestor.SwapScreen(screen);
+                        screen.DataContext = OrderSumControlListView.SelectedItem;
+                    }
                 }
             }
         }

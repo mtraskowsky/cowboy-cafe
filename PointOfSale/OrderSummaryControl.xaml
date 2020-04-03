@@ -9,7 +9,8 @@
     <Grid>
         <StackPanel Grid.ColumnSpan="2" Grid.Column="0">
             <TextBlock TextAlignment="Center" FontSize="21" Text="{Binding Path=OrderNumber, StringFormat='Order Number: {0}'}"></TextBlock>
-            <ListBox SelectionChanged="ChangeOrder" ItemsSource="{Binding Path=Items}" Name="OrderSumControlListView" HorizontalContentAlignment="Stretch">
+            <ListBox Height="400" SelectionChanged="ChangeOrder" ItemsSource="{Binding Path=Items}" Name="OrderSumControlListView" 
+                     HorizontalContentAlignment="Stretch" FontSize="15" ScrollViewer.VerticalScrollBarVisibility="Visible">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid>

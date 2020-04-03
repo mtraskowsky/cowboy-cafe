@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="600" d:DesignWidth="800">
     <Grid>
         <StackPanel>
             <Border x:Name="TransactionDetails" Padding="30 30 30 30">
@@ -13,7 +13,7 @@
                     <TextBlock TextAlignment="Center" FontSize="40" Text="Transaction Details"/>
                     <TextBlock TextAlignment="Center" FontSize="20" Text="{Binding Path=OrderNumber, StringFormat='Order Number: {0}'}"/>
                     <TextBlock FontSize="15" Text="Items in the Order:"/>
-                    <ListBox ItemsSource="{Binding Path=Items}" HorizontalContentAlignment="Stretch">
+                    <ListBox ItemsSource="{Binding Path=Items}" HorizontalContentAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Visible" Height="150"> 
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
@@ -32,10 +32,10 @@
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
-                    <TextBlock FontSize="15" Text="SUBTOTAL: "/>
+                    <TextBlock FontSize="15" Text="Subtotal: "/>
                     <TextBlock FontSize="15" Text="{Binding Path=Subtotal, Mode=OneWay, StringFormat=c}"/>
-                    <TextBlock FontSize="15" Text="Total (with %16 tax: "/>
-                    <TextBlock FontSize="15" Text="{Binding Path=TotalWithTax, Mode=OneWay, StringFormat=c}"/>
+                    <TextBlock FontSize="18" Text="Total (with %16 tax): "/>
+                    <TextBlock FontSize="18" Text="{Binding Path=TotalWithTax, Mode=OneWay, StringFormat=c}"/>
                 </StackPanel>
             </Border>
             <Border Padding="30 30 30 30">
@@ -45,9 +45,9 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Button Name="PayWithCreditButton" Grid.Column="0" Grid.Row="0">Pay with Credit</Button>
-                    <Button Name="PayWithCashButton" Grid.Column="1" Grid.Row="0">Pay with Cash</Button>
-                    <Button Name="CancelTransactionButton"  Grid.Column="2" Grid.Row="0">Cancel Transaction</Button>
+                    <Button FontSize="20" Name="PayWithCreditButton" Grid.Column="0" Grid.Row="0">Pay with Credit</Button>
+                    <Button FontSize="20" Name="PayWithCashButton" Grid.Column="1" Grid.Row="0">Pay with Cash</Button>
+                    <Button FontSize="20" Name="CancelTransactionButton"  Grid.Column="2" Grid.Row="0">Cancel Transaction</Button>
                 </Grid>
             </Border>
         </StackPanel>

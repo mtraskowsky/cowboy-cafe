@@ -47,6 +47,9 @@ namespace CowboyCafe.Data
         }
 
         private double totalWithTax;
+        /// <summary>
+        /// gets and sets the total of the order with tax included
+        /// </summary>
         public double TotalWithTax
         {
             get
