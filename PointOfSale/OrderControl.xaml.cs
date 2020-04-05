@@ -51,6 +51,7 @@ namespace PointOfSale
         {
             OutsideBorder.Child = element;
         }
+
         
 
         /// <summary>

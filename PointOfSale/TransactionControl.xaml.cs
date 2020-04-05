@@ -79,7 +79,24 @@ namespace PointOfSale
 
         void OnPayWithCashButtonClicked(object sender, RoutedEventArgs e)
         {
-            //CashDrawer drawer = new CashDrawer();
+            Order o = (Order)DataContext;
+
+            var orderInfo = this.FindAncestor<OrderControl>(); 
+
+            CashRegisterControl crc = new CashRegisterControl();
+
+            CashPaymentDetails.orderTotal = o.TotalWithTax;
+            // order 
+            CashPaymentDetails.orderNum = o.OrderNumber;
+            // receipt
+            
+
+
+            CashRegisterModelView cashreg = new CashRegisterModelView();
+            crc.DataContext = cashreg;
+
+            orderInfo.SwapOrderSum(crc); // swaps whole screen to cash register 
+            //TransactionItemInfo.Child = crc; // swaps only transaction details to cash registe          
         }
 
 

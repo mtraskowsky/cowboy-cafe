@@ -64,7 +64,9 @@ namespace CowboyCafe.Data
 
                 return sub + tax;
             }
-            set { totalWithTax = value; }
+            set { 
+                totalWithTax = value;
+            }
         }
 
         /// <summary>

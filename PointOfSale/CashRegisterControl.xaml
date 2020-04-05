@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="PointOfSale.CashRegisterControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="900">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".5*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Height="30" Grid.Row="0">
+            <Button Name="ReturnToTransactionButton" FontSize="15">Return to Transaction</Button>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <TextBlock FontSize="18" Text="{Binding Path=TotalWithTax, Mode=OneWay, StringFormat='Total with tax: {0}'}"/>
+            <TextBlock Text="{Binding Path=TotalValue, StringFormat='Total value in drawer: {0}'}"/>
+            <TextBlock Text="{Binding Path=Total, StringFormat='Customer Order Total: {0}'}"/>
+            <TextBlock Text="{Binding Path=orderNumb, StringFormat='Order num: {0}'}"/>
+            <TextBlock Text="{Binding Path=CustMoney, StringFormat='Amount added during transaction: {0}'}"/>
+            <TextBlock Text="{Binding Path=calculateRemainingAmt, StringFormat='Amount remaining: {0}'}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Row="2">
+            <local:BillControl Denomination="One" Quantity="{Binding Path=Ones}"/>
+            <local:BillControl Denomination="Two" Quantity="{Binding Path=Twos}"/>
+            <local:BillControl Denomination="Five" Quantity="{Binding Path=Fives}"/>
+            <local:BillControl Denomination="Ten" Quantity="{Binding Path=Tens}"/>
+            <local:BillControl Denomination="Twenty" Quantity="{Binding Path=Twenties}"/>
+            <local:BillControl Denomination="Fifty" Quantity="{Binding Path=Fifties}"/>
+            <local:BillControl Denomination="Hundred" Quantity="{Binding Path=Hundreds}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="3">
+            <local:CoinControl Denomination="Penny" Quantity="{Binding Path=Pennies}"/>
+            <local:CoinControl Denomination="Nickel" Quantity="{Binding Path=Nickels}"/>
+            <local:CoinControl Denomination="Dime" Quantity="{Binding Path=Dimes}"/>
+            <local:CoinControl Denomination="Quarter" Quantity="{Binding Path=Quarters}"/>
+            <local:CoinControl Denomination="HalfDollar" Quantity="{Binding Path=HalfDollars}"/>
+            <local:CoinControl Denomination="Dollar" Quantity="{Binding Path=Dollars}"/>
+        </StackPanel>
+        
+    </Grid>
+</UserControl>

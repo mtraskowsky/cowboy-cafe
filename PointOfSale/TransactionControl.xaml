@@ -12,26 +12,30 @@
                 <StackPanel>
                     <TextBlock TextAlignment="Center" FontSize="40" Text="Transaction Details"/>
                     <TextBlock TextAlignment="Center" FontSize="20" Text="{Binding Path=OrderNumber, StringFormat='Order Number: {0}'}"/>
-                    <TextBlock FontSize="15" Text="Items in the Order:"/>
-                    <ListBox ItemsSource="{Binding Path=Items}" HorizontalContentAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Visible" Height="150"> 
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition/>
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
-                                    </Grid.RowDefinitions>
-                                    <TextBlock Grid.Row="0" TextAlignment="Left" Text="{Binding}"/>
-                                    <TextBlock Grid.Column="1" TextAlignment="Right" Text="{Binding Path=Price, StringFormat=c}"/>
-                                    <ListView Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Path= SpecialInstructions}"/>
-                                </Grid>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
+                    <Border x:Name="TransactionItemInfo">
+                        <StackPanel>
+                            <TextBlock FontSize="15" Text="Items in the Order:"/>
+                            <ListBox ItemsSource="{Binding Path=Items}" HorizontalContentAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Visible" Height="150">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
+                                            <TextBlock Grid.Row="0" TextAlignment="Left" Text="{Binding}"/>
+                                            <TextBlock Grid.Column="1" TextAlignment="Right" Text="{Binding Path=Price, StringFormat=c}"/>
+                                            <ListView Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Path= SpecialInstructions}"/>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </StackPanel>
+                    </Border>
                     <TextBlock FontSize="15" Text="Subtotal: "/>
                     <TextBlock FontSize="15" Text="{Binding Path=Subtotal, Mode=OneWay, StringFormat=c}"/>
                     <TextBlock FontSize="18" Text="Total (with %16 tax): "/>
