@@ -50,6 +50,13 @@ namespace PointOfSale
             orderInfo.SwapOrderSum(o);
         }
 
+        /// <summary>
+        /// When customer pays with credit, processes credit card.
+        /// If processing is successful, prints the receipt and processes the payment, else the cashier is
+        /// given the option to select pay with Cash or Credit or Cancel Transaction
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void OnPayWithCreditButtonClicked(object sender, RoutedEventArgs e)
         {
             string cred = "Credit";
@@ -76,9 +83,15 @@ namespace PointOfSale
             }
         }
 
-
+        /// <summary>
+        /// When customer pays with cash, generates cash register UI and controls the amounts in the cashdrawer
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void OnPayWithCashButtonClicked(object sender, RoutedEventArgs e)
         {
+            string cash = "Cash";
+
             Order o = (Order)DataContext;
 
             var orderInfo = this.FindAncestor<OrderControl>(); 
@@ -86,33 +99,58 @@ namespace PointOfSale
             CashRegisterControl crc = new CashRegisterControl();
 
             CashPaymentDetails.orderTotal = o.TotalWithTax;
-            // order 
             CashPaymentDetails.orderNum = o.OrderNumber;
-            // receipt
-            
-
 
             CashRegisterModelView cashreg = new CashRegisterModelView();
             crc.DataContext = cashreg;
 
             orderInfo.SwapOrderSum(crc); // swaps whole screen to cash register 
-            //TransactionItemInfo.Child = crc; // swaps only transaction details to cash registe          
+            
+            PrintTheReceipt(o, cash);
         }
 
-
+        /// <summary>
+        /// Method which prints the receipt to file to PointOfSale/bin/Debug/netcoreapp3.1/receipt and 
+        /// also displays the receipt in a messagebox.
+        /// </summary>
+        /// <param name="order">The order info</param>
+        /// <param name="paymentType">The type of customer payment (cash or credit)</param>
         void PrintTheReceipt(Order order, string paymentType)
         {
             Order o = order;
             var sb = new StringBuilder();
+            sb.Append("\n*******************************************\n");
+            sb.Append("Date and Time: " + DateTime.Now.ToString() + "\n");
+            sb.Append("Order No: " + o.OrderNumber + "\n" + "\n");
+            
             foreach (IOrderItem item in o.items)
             {
-                sb.Append(item.ToString() + "\t\t");
-                sb.Append(item.Price.ToString() + "\n");
+                sb.Append(item.ToString());
+                
+                int numSpaces = 35 - item.ToString().Length; 
+                for (int i = 0; i < numSpaces; i++)
+                {
+                    sb.Append(".");
+                }
+
+                sb.AppendFormat("${0:C}\n", item.Price.ToString());
+
+                foreach(string si in item.SpecialInstructions)
+                {
+                    sb.Append("\t" + si + "\n");
+                }
             }
+
+            sb.Append("\nPayment method: " + paymentType + "\n");
+            sb.AppendFormat("Order subtotal: {0:C}\n", o.Subtotal);
+            sb.AppendFormat("Total (16% tax): {0:C}\n", o.TotalWithTax);
+            sb.Append("\n*******************************************\n");
+
             // print receipt
             ReceiptPrinter printer = new ReceiptPrinter();
             printer.Print(sb.ToString());
             MessageBox.Show(sb.ToString());
+
         }
     }
 }

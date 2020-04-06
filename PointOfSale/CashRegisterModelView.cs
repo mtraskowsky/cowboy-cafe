@@ -42,6 +42,34 @@ namespace PointOfSale
             }
         }
 
+        private double change;
+        public double calcChange
+        {
+            get
+            {
+                if (remaining >= 0)
+                {
+                    return 0;
+                }
+                else
+                {
+                    change = (remaining * -1);
+                    return change;
+                }
+            }
+        }
+
+        /*
+        private string coinAndBillsAmt;
+        public string coinAndBills
+        {
+            get
+            {
+                coinAndBillsAmt = ReturnChange();
+                return coinAndBillsAmt;
+            }
+        }
+        */
         private double orderTotalWithTax;
         public double OrderTotalWithTax(double orderTot)
         {
@@ -87,6 +115,9 @@ namespace PointOfSale
                 InvokePropertyChanged("Pennies");
                 InvokePropertyChanged("CustMoney");
                 InvokePropertyChanged("calculateRemainingAmt");
+                InvokePropertyChanged("calcChange");
+                //InvokePropertyChanged("coinAndBills");
+
             }
         }
 
@@ -112,6 +143,8 @@ namespace PointOfSale
                 InvokePropertyChanged("Dimes");
                 InvokePropertyChanged("CustMoney");
                 InvokePropertyChanged("calculateRemainingAmt");
+                InvokePropertyChanged("calcChange");
+                //InvokePropertyChanged("coinAndBills");
 
             }
         }
@@ -137,6 +170,8 @@ namespace PointOfSale
                 InvokePropertyChanged("Nickels");
                 InvokePropertyChanged("CustMoney");
                 InvokePropertyChanged("calculateRemainingAmt");
+                InvokePropertyChanged("calcChange");
+                //InvokePropertyChanged("coinAndBills");
 
             }
         }
@@ -162,6 +197,8 @@ namespace PointOfSale
                 InvokePropertyChanged("Quarters");
                 InvokePropertyChanged("CustMoney");
                 InvokePropertyChanged("calculateRemainingAmt");
+                InvokePropertyChanged("calcChange");
+                //InvokePropertyChanged("coinAndBills");
 
             }
         }
@@ -186,6 +223,8 @@ namespace PointOfSale
                 InvokePropertyChanged("HalfDollars");
                 InvokePropertyChanged("CustMoney");
                 InvokePropertyChanged("calculateRemainingAmt");
+                InvokePropertyChanged("calcChange");
+                //InvokePropertyChanged("coinAndBills");
 
             }
         }
@@ -212,6 +251,8 @@ namespace PointOfSale
                 InvokePropertyChanged("Dollars");
                 InvokePropertyChanged("CustMoney");
                 InvokePropertyChanged("calculateRemainingAmt");
+                InvokePropertyChanged("calcChange");
+                //InvokePropertyChanged("coinAndBills");
 
             }
         }
@@ -237,6 +278,8 @@ namespace PointOfSale
                 InvokePropertyChanged("Ones");
                 InvokePropertyChanged("CustMoney");
                 InvokePropertyChanged("calculateRemainingAmt");
+                InvokePropertyChanged("calcChange");
+                //InvokePropertyChanged("coinAndBills");
 
             }
         }
@@ -262,6 +305,8 @@ namespace PointOfSale
                 InvokePropertyChanged("Twos");
                 InvokePropertyChanged("CustMoney");
                 InvokePropertyChanged("calculateRemainingAmt");
+                InvokePropertyChanged("calcChange");
+                //InvokePropertyChanged("coinAndBills");
 
             }
         }
@@ -287,6 +332,8 @@ namespace PointOfSale
                 InvokePropertyChanged("Fives");
                 InvokePropertyChanged("CustMoney");
                 InvokePropertyChanged("calculateRemainingAmt");
+                InvokePropertyChanged("calcChange");
+                //InvokePropertyChanged("coinAndBills");
 
             }
         }
@@ -312,6 +359,8 @@ namespace PointOfSale
                 InvokePropertyChanged("Tens");
                 InvokePropertyChanged("CustMoney");
                 InvokePropertyChanged("calculateRemainingAmt");
+                InvokePropertyChanged("calcChange");
+                //InvokePropertyChanged("coinAndBills");
 
             }
         }
@@ -337,6 +386,8 @@ namespace PointOfSale
                 InvokePropertyChanged("Twenties");
                 InvokePropertyChanged("CustMoney");
                 InvokePropertyChanged("calculateRemainingAmt");
+                InvokePropertyChanged("calcChange");
+                //InvokePropertyChanged("coinAndBills");
 
             }
         }
@@ -363,6 +414,8 @@ namespace PointOfSale
                 InvokePropertyChanged("Fifties");
                 InvokePropertyChanged("CustMoney");
                 InvokePropertyChanged("calculateRemainingAmt");
+                InvokePropertyChanged("calcChange");
+                //InvokePropertyChanged("coinAndBills");
 
             }
         }
@@ -388,7 +441,8 @@ namespace PointOfSale
                 InvokePropertyChanged("Hundreds");
                 InvokePropertyChanged("CustMoney");
                 InvokePropertyChanged("calculateRemainingAmt");
-
+                InvokePropertyChanged("calcChange");
+                //InvokePropertyChanged("coinAndBills");
             }
         }
 
@@ -403,7 +457,120 @@ namespace PointOfSale
         }
 
        
+        /*
+        public string ReturnChange()
+        {
 
+            double AmtChangeToGive = calcChange;
+
+
+            // 100s
+            int numHundredsBillsForChange = (int)(AmtChangeToGive / 100); // use int division to find # bills 
+            if (numHundredsBillsForChange >= Hundreds) // if # bills needed for change >= # bills in drawer
+            {
+                AmtChangeToGive = AmtChangeToGive - (Hundreds * 100); // subtract # bills in drawer from the change to give
+                numHundredsBillsForChange = Hundreds; // take out bills in drawer and make them change for customer
+                Hundreds = 0; // zero out the drawer
+            }
+            else // if # bills needed is in the drawer
+            {
+                AmtChangeToGive = AmtChangeToGive - (numHundredsBillsForChange * 100); // subtract the # bills needed from the change amount
+                Hundreds = Hundreds - numHundredsBillsForChange; // subtract the # bills you took from the drawer
+            }
+
+            // 50s
+            int numFiftiesBillsForChange = (int)(AmtChangeToGive / 50); // use int division to find # bills 
+            if (numFiftiesBillsForChange >= Fifties) // if # bills needed for change >= # bills in drawer
+            {
+                AmtChangeToGive = AmtChangeToGive - (Fifties * 50); // subtract # bills in drawer from the change to give
+                numFiftiesBillsForChange = Fifties; // take out bills in drawer and make them change for customer
+                Fifties = 0; // zero out the drawer
+            }
+            else // if # bills needed is in the drawer
+            {
+                AmtChangeToGive = AmtChangeToGive - (numFiftiesBillsForChange * 50); // subtract the # bills needed from the change amount
+                Fifties = Fifties - numFiftiesBillsForChange; // subtract the # bills you took from the drawer
+            }
+
+            // 20s
+            int numTwentiesBillsForChange = (int)(AmtChangeToGive / 20); // use int division to find # bills 
+            if (numTwentiesBillsForChange >= Twenties) // if # bills needed for change >= # bills in drawer
+            {
+                AmtChangeToGive = AmtChangeToGive - (Twenties * 20); // subtract # bills in drawer from the change to give
+                numTwentiesBillsForChange = Twenties; // take out bills in drawer and make them change for customer
+                Twenties = 0; // zero out the drawer
+            }
+            else // if # bills needed is in the drawer
+            {
+                AmtChangeToGive = AmtChangeToGive - (numTwentiesBillsForChange * 20); // subtract the # bills needed from the change amount
+                Twenties = Twenties - numTwentiesBillsForChange; // subtract the # bills you took from the drawer
+            }
+
+            // 10s
+            int numTensBillsForChange = (int)(AmtChangeToGive / 10); // use int division to find # bills 
+            if (numTensBillsForChange >= Tens) // if # bills needed for change >= # bills in drawer
+            {
+                AmtChangeToGive = AmtChangeToGive - (Tens * 10); // subtract # bills in drawer from the change to give
+                numTensBillsForChange = Tens; // take out bills in drawer and make them change for customer
+                Tens = 0; // zero out the drawer
+            }
+            else // if # bills needed is in the drawer
+            {
+                AmtChangeToGive = AmtChangeToGive - (numTensBillsForChange * 10); // subtract the # bills needed from the change amount
+                Tens = Tens - numTensBillsForChange; // subtract the # bills you took from the drawer
+            }
+
+            // 5s
+            int numFivesBillsForChange = (int)(AmtChangeToGive / 5); // use int division to find # bills 
+            if (numFivesBillsForChange >= Fives) // if # bills needed for change >= # bills in drawer
+            {
+                AmtChangeToGive = AmtChangeToGive - (Fives * 5); // subtract # bills in drawer from the change to give
+                numFivesBillsForChange = Fives; // take out bills in drawer and make them change for customer
+                Fives = 0; // zero out the drawer
+            }
+            else // if # bills needed is in the drawer
+            {
+                AmtChangeToGive = AmtChangeToGive - (numFivesBillsForChange * 5); // subtract the # bills needed from the change amount
+                Fives = Fives - numFivesBillsForChange; // subtract the # bills you took from the drawer
+            }
+
+            // 2s
+            int numTwosBillsForChange = (int)(AmtChangeToGive / 2); // use int division to find # bills 
+            if (numTwosBillsForChange >= Twos) // if # bills needed for change >= # bills in drawer
+            {
+                AmtChangeToGive = AmtChangeToGive - (Twos * 2); // subtract # bills in drawer from the change to give
+                numTwosBillsForChange = Twos; // take out bills in drawer and make them change for customer
+                Twos = 0; // zero out the drawer
+            }
+            else // if # bills needed is in the drawer
+            {
+                AmtChangeToGive = AmtChangeToGive - (numTwosBillsForChange * 2); // subtract the # bills needed from the change amount
+                Twos = Twos - numTwosBillsForChange; // subtract the # bills you took from the drawer
+            }
+
+            // 1s
+            int numOnesBillsForChange = (int)(AmtChangeToGive / 1); // use int division to find # bills 
+            if (numOnesBillsForChange >= Ones) // if # bills needed for change >= # bills in drawer
+            {
+                AmtChangeToGive = AmtChangeToGive - (Ones * 1); // subtract # bills in drawer from the change to give
+                numOnesBillsForChange = Ones; // take out bills in drawer and make them change for customer
+                Ones = 0; // zero out the drawer
+            }
+            else // if # bills needed is in the drawer
+            {
+                AmtChangeToGive = AmtChangeToGive - (numOnesBillsForChange * 1); // subtract the # bills needed from the change amount
+                Ones = Ones - numOnesBillsForChange; // subtract the # bills you took from the drawer
+            }
+
+
+            StringBuilder sb = new StringBuilder();
+            sb.Append("CHANGE AMT\n");
+            sb.Append("\nHundreds: " + numHundredsBillsForChange);
+            sb.Append("\nFifties: " + numFiftiesBillsForChange);
+
+            return sb.ToString();
+        }
+        */
         
     }
 }
