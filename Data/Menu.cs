@@ -67,7 +67,7 @@ namespace CowboyCafe.Data
             return drinkItems;
         }
 
-        public static IEnumerable<IOrderItem> All { get { return allItems; } }
+        public static IEnumerable<IOrderItem> CompleteMenu { get { return allItems; } }
 
     }
 }
