@@ -1,0 +1,46 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to Cowboy Cafe!</h1>
+</div>
+<p>
+    We at Cowboy Cafe are proud to bring you authentic trail meals from the American West. Shake off the dust
+    on your boots and sake your thirst with one of our old-fashioned hand-jerked sodas. Dip your Pan de Campo
+    into a bowl of beans. Or conquer the the mighty Texas Triple Burger! You’ve had a hard ride - so take it easy with us.
+</p>
+<li>
+    <div class="entrees">
+        <h2>Entrees</h2>
+       @foreach(IOrderItem entree in Menu.Entrees()){
+            <div class="menu-item">
+                @entree.ToString()
+                <p>Price: @entree.Price</p>
+                <p>Calories: @entree.Calories</p>
+            </div>
+        }
+    </div>
+    <div class="sides">
+        <h2>Sides</h2>
+        @foreach(IOrderItem side in Menu.Sides()){
+            <div class="menu-item">
+                @side.ToString()
+                <p>Price: @side.Price </p>
+                <p>Calories: @side.Calories</p>
+            </div>
+        }
+    </div>
+    <div class="drinks">
+        <h2>Drinks</h2>
+        @foreach(IOrderItem drink in Menu.Drinks()){
+            <div class="menu-item">
+                @drink.ToString()
+                <p>Price: @drink.Price</p>
+                <p>Calories: @drink.Calories</p>
+            </div>
+        }
+    </div>
+</li>
