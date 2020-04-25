@@ -9,6 +9,36 @@ namespace CowboyCafe.Data
 {
     public static class Menu
     {
+        
+        public static IEnumerable<IOrderItem> Search(IEnumerable<IOrderItem> list, string terms)
+        {
+            List<IOrderItem> items = new List<IOrderItem>();
+
+            if (terms == null) { return All; }
+
+            // search through all menu items for a match to the search
+            foreach(IOrderItem menuItem in All)
+            {
+                if (menuItem.ToString() != null && menuItem.ToString().Contains(terms, StringComparison.InvariantCultureIgnoreCase))
+                {
+                    items.Add(menuItem);
+                }
+            }
+
+            // if no search results are found, return the whole menu
+            if (items.Count == 0)
+            {
+                return All;
+            }
+
+            // if results are found, return the results of the search
+            else
+            {
+                return items;
+            }
+        }
+        
+
         private static List<IOrderItem> entreeItems = new List<IOrderItem>();
         private static List<IOrderItem> drinkItems = new List<IOrderItem>();
         private static List<IOrderItem> sideItems = new List<IOrderItem>();
@@ -26,14 +56,6 @@ namespace CowboyCafe.Data
             entreeItems.Add(new PecosPulledPork());
             entreeItems.Add(new RustlersRibs());
 
-            allItems.Add(new CowpokeChili());
-            allItems.Add(new AngryChicken());
-            allItems.Add(new TrailBurger());
-            allItems.Add(new DakotaDoubleBurger());
-            allItems.Add(new TexasTripleBurger());
-            allItems.Add(new PecosPulledPork());
-            allItems.Add(new RustlersRibs());
-
             return entreeItems; 
         }
 
@@ -43,12 +65,7 @@ namespace CowboyCafe.Data
             sideItems.Add(new CornDodgers());
             sideItems.Add(new BakedBeans());
             sideItems.Add(new PanDeCampo());
-
-            allItems.Add(new ChiliCheeseFries());
-            allItems.Add(new CornDodgers());
-            allItems.Add(new BakedBeans());
-            allItems.Add(new PanDeCampo());
-
+           
             return sideItems;
         }
 
@@ -59,15 +76,44 @@ namespace CowboyCafe.Data
             drinkItems.Add(new TexasTea());
             drinkItems.Add(new Water());
 
+            return drinkItems;
+        }
+
+        public static IEnumerable<IOrderItem> CompleteMenu()
+        {
+            allItems.Add(new CowpokeChili());
+            allItems.Add(new AngryChicken());
+            allItems.Add(new TrailBurger());
+            allItems.Add(new DakotaDoubleBurger());
+            allItems.Add(new TexasTripleBurger());
+            allItems.Add(new PecosPulledPork());
+            allItems.Add(new RustlersRibs());
+
+            allItems.Add(new ChiliCheeseFries());
+            allItems.Add(new CornDodgers());
+            allItems.Add(new BakedBeans());
+            allItems.Add(new PanDeCampo());
+
             allItems.Add(new JerkedSoda());
             allItems.Add(new CowboyCoffee());
             allItems.Add(new TexasTea());
             allItems.Add(new Water());
 
-            return drinkItems;
+            return allItems;
         }
 
-        public static IEnumerable<IOrderItem> CompleteMenu { get { return allItems; } }
+        private static IEnumerable<IOrderItem> all = CompleteMenu();
+        public static IEnumerable<IOrderItem> All
+        {
+            get
+            {
+                return all;
+            }
+            set
+            {
+                all = value;
+            }
+        }
 
     }
 }
