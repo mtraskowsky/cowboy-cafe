@@ -9,7 +9,12 @@ namespace CowboyCafe.Data
 {
     public static class Menu
     {
-        
+        /// <summary>
+        /// Search though all items in the menu to find a match to user search query
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="terms"></param>
+        /// <returns></returns>
         public static IEnumerable<IOrderItem> Search(IEnumerable<IOrderItem> list, string terms)
         {
             List<IOrderItem> items = new List<IOrderItem>();
@@ -54,7 +59,7 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
-        /// Filters the provided collection of menu items
+        /// Filters the provided collection of menu items based on category
         /// </summary>
         /// <param name="list"></param>
         /// <param name="s"></param>
@@ -93,9 +98,13 @@ namespace CowboyCafe.Data
             return results;
         }
 
-
-
-
+        /// <summary>
+        /// Filters the provided collection of menu items based on calories
+        /// </summary>
+        /// <param name="items"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <returns></returns>
         public static IEnumerable<IOrderItem> FilterByCalories(IEnumerable<IOrderItem> items, uint? min, uint? max)
         {
             if (min == null && max == null) return items;
@@ -132,7 +141,13 @@ namespace CowboyCafe.Data
             return results;
         }
 
-
+        /// <summary>
+        /// Filters the provided collection of menu items based on price
+        /// </summary>
+        /// <param name="items"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <returns></returns>
         public static IEnumerable<IOrderItem> FilterByPrice(IEnumerable<IOrderItem> items, double? min, double? max)
         {
             if (min == null && max == null) return items;
@@ -169,14 +184,17 @@ namespace CowboyCafe.Data
             return results;
         }
 
-
+        // Lists of items
         private static List<IOrderItem> entreeItems = new List<IOrderItem>();
         private static List<IOrderItem> drinkItems = new List<IOrderItem>();
         private static List<IOrderItem> sideItems = new List<IOrderItem>();
         private static List<IOrderItem> allItems = new List<IOrderItem>();
 
 
-
+        /// <summary>
+        /// List of the entrees on the menu
+        /// </summary>
+        /// <returns></returns>
         public static IEnumerable<IOrderItem> Entrees()
         {
             entreeItems.Add(new CowpokeChili());
@@ -190,6 +208,10 @@ namespace CowboyCafe.Data
             return entreeItems; 
         }
 
+        /// <summary>
+        /// List of the sides on the menu
+        /// </summary>
+        /// <returns></returns>
         public static IEnumerable<IOrderItem> Sides()
         {
             sideItems.Add(new ChiliCheeseFries());
@@ -200,6 +222,10 @@ namespace CowboyCafe.Data
             return sideItems;
         }
 
+        /// <summary>
+        /// List of the drinks on the menu
+        /// </summary>
+        /// <returns></returns>
         public static IEnumerable<IOrderItem> Drinks()
         {
             drinkItems.Add(new JerkedSoda());
@@ -210,6 +236,10 @@ namespace CowboyCafe.Data
             return drinkItems;
         }
 
+        /// <summary>
+        /// List of the complete menu 
+        /// </summary>
+        /// <returns></returns>
         public static IEnumerable<IOrderItem> CompleteMenu()
         {
             allItems.Add(new CowpokeChili());
@@ -233,6 +263,9 @@ namespace CowboyCafe.Data
             return allItems;
         }
 
+        /// <summary>
+        /// List of all menu items
+        /// </summary>
         private static IEnumerable<IOrderItem> all = CompleteMenu();
         public static IEnumerable<IOrderItem> All
         {

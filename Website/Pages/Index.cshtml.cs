@@ -11,36 +11,31 @@ namespace Website.Pages
 {
     public class IndexModel : PageModel
     {
-        /*
-        private readonly ILogger<IndexModel> _logger;
-
-        public IndexModel(ILogger<IndexModel> logger)
-        {
-            _logger = logger;
-        }
-        */
-
+      
+        // The items to be displayed on the screen
         public IEnumerable<IOrderItem> ItemsDisplayed { get; protected set; }
 
+        // Minimum price
         [BindProperty]
         public double? PriceMin { get; set; }
 
+        // Maximum price
         [BindProperty]
         public double? PriceMax { get; set; }
 
+        // Minimum calories
         [BindProperty]
         public uint? CaloriesMin { get; set; }
 
+        // Maximum calories
         [BindProperty]
         public uint? CaloriesMax { get; set; }
 
-        /// <summary>
-        /// Whether the item is an entree, drink, or side
-        /// </summary>
+        // Whether the item is an entree, drink, or side
         [BindProperty]
         public string[] ItemType { get; set; }
 
-
+        // The search terms 
         [BindProperty]
         public string SearchTerms { get; set; } = "";
 
