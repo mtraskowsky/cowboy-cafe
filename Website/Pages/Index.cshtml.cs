@@ -23,6 +23,25 @@ namespace Website.Pages
         public IEnumerable<IOrderItem> ItemsDisplayed { get; protected set; }
 
         [BindProperty]
+        public double? PriceMin { get; set; }
+
+        [BindProperty]
+        public double? PriceMax { get; set; }
+
+        [BindProperty]
+        public uint? CaloriesMin { get; set; }
+
+        [BindProperty]
+        public uint? CaloriesMax { get; set; }
+
+        /// <summary>
+        /// Whether the item is an entree, drink, or side
+        /// </summary>
+        [BindProperty]
+        public string[] ItemType { get; set; }
+
+
+        [BindProperty]
         public string SearchTerms { get; set; } = "";
 
 
@@ -34,6 +53,9 @@ namespace Website.Pages
         public void OnPost()
         {
             ItemsDisplayed = Menu.Search(ItemsDisplayed, SearchTerms);
+            ItemsDisplayed = Menu.FilterByCategory(ItemsDisplayed, ItemType);
+            ItemsDisplayed = Menu.FilterByCalories(ItemsDisplayed, CaloriesMin, CaloriesMax);
+            ItemsDisplayed = Menu.FilterByPrice(ItemsDisplayed, PriceMin, PriceMax);
         }
         
     }
